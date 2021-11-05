@@ -16,6 +16,4 @@ Route::prefix('admins')->group(function() {
     Route::get('listGame', 'GameController@index')->name('get.list.game');
     Route::get('createGame', 'GameController@create')->name('get.create.game');
     Route::post('createGame', 'GameController@store');
-    Route::get('demoView', 'GameController@demoView')->name('get.demo.view');
-    Route::get('demoViewAjax', 'gamecontroller@demoviewajax')->name('get.demo.view.ajax');
 });

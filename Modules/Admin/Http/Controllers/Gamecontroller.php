@@ -61,17 +61,4 @@ class Gamecontroller extends Controller
 
         return redirect()->route('get.list.game');
     }
-
-    public function demoView()
-	{
-		$games = Game::all();
-		return view('admin::games.demoView', compact('games'));
-	}
-
-	public function demoViewAjax(Request $request)
-	{
-		$file_game = isset($request->file_game) ? $request->file_game : "squidgame";
-
-		return response()->json($file_game);
-	}
 }
