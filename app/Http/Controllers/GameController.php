@@ -5,8 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
 
-class GameController extends Controller
+class GameController extends FrontendController
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    
 	public function index(Request $request)
     {
     	$file_game = $request->file;

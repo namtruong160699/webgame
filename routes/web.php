@@ -17,5 +17,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', 'DashboardController@index')->name('dashboard');
+Route::get('/', 'DashboardController@index')->name('client.dashboard');
 Route::get('/{file}', 'GameController@index')->name('get.demo.view');
+Route::get('games/{slug}-{id}','CategoryController@getListProduct')->name('get.list.product');

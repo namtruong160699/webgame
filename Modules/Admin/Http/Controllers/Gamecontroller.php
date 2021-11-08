@@ -7,6 +7,7 @@ use Illuminate\Routing\Controller;
 use App\Models\Game;
 use ZipArchive;
 use File;
+use App\Models\Category;
 
 class Gamecontroller extends Controller
 {
@@ -18,7 +19,8 @@ class Gamecontroller extends Controller
 
     public function create()
     {
-        return view('admin::games.create');
+        $categories = $this->getCategories();
+        return view('admin::games.create', compact('categories'));
     }
 
     public function store(Request $request)
@@ -26,6 +28,7 @@ class Gamecontroller extends Controller
         $game = new Game();
         $game->name = $request->name;
         $game->operating_system = $request->operating_system;
+        $game->category_id = $request->category_id;
         if ($request->hasFile('avatar'))
         {
             $file = upload_image('avatar');
@@ -60,5 +63,10 @@ class Gamecontroller extends Controller
         $game->save();
 
         return redirect()->route('get.list.game');
+    }
+
+    public function getCategories()
+    {
+        return Category::all();
     }
 }

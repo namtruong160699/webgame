@@ -38,7 +38,7 @@
             <div class="row">
                 <div class="col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.html">
+                        <a href="{{route('client.dashboard')}}">
                             <img src="{{asset('Client/img/logo.png')}}" alt="">
                         </a>
                     </div>
@@ -47,15 +47,14 @@
                     <div class="header__nav">
                         <nav class="header__menu mobile-menu">
                             <ul>
-                                <li class="active"><a href="./index.html">Trang chủ</a></li>
-                                <li><a href="./categories.html">Danh mục<span class="arrow_carrot-down"></span></a>
+                                <li class="active"><a href="{{route('client.dashboard')}}">Trang chủ</a></li>
+                                <li><a href="#">Danh mục<span class="arrow_carrot-down"></span></a>
                                     <ul class="dropdown">
-                                        <li><a href="./categories.html">Categories</a></li>
-                                        <li><a href="./anime-details.html">Anime Details</a></li>
-                                        <li><a href="./anime-watching.html">Anime Watching</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="./signup.html">Sign Up</a></li>
-                                        <li><a href="./login.html">Login</a></li>
+                                        @if(isset($categories))
+                                            @foreach($categories as $category)
+                                                <li><a href="{{route('get.list.product',[$category->slug,$category->id])}}">{{$category->name}}</a></li>
+                                            @endforeach
+                                        @endif
                                     </ul>
                                 </li>
                                 <li><a href="#">Liên hệ</a></li>
