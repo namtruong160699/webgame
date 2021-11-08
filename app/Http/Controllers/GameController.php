@@ -15,7 +15,8 @@ class GameController extends FrontendController
 	public function index(Request $request)
     {
     	$file_game = $request->file;
+        $game = Game::where('file_game', $file_game)->first();
         $games = Game::paginate(4);
-        return view('games.demoView', compact('games','file_game'));
+        return view('games.demoView', compact('games','file_game', 'game'));
     }
 }

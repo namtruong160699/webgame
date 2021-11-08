@@ -42,6 +42,12 @@
                                             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Mô tả</label>
+                                            <textarea class="form-control" name="description" id="description" cols="30" rows="3" placeholder="Thêm mô tả chi tiết hơn..."></textarea>
+                                        </div>
+                                    </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Phiên bản</label>
@@ -87,6 +93,8 @@
 </div>
 @stop
 @section('script')
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('ckfinder/ckfinder.js') }}"></script>
 <script>
     function readURL(input) {
         if (input.files && input.files[0]) {
@@ -102,5 +110,30 @@
     $("#input_img").change(function() {
         readURL(this);
     });
+</script>
+<script>
+    CKEDITOR.on('dialogDefinition', function (ev) {
+        // Take the dialog name and its definition from the event data.
+        var dialogName = ev.data.name;
+        var dialogDefinition = ev.data.definition;
+        // Check if the definition is from the dialog we're
+        // interested in (the 'image' dialog).
+        if (dialogName == 'image') {
+            // Get a reference to the 'Image Info' tab.
+            var infoTab = dialogDefinition.getContents('info');
+            // Remove unnecessary widgets/elements from the 'Image Info' tab.
+            infoTab.remove('browse');
+            infoTab.remove('txtHSpace');
+            infoTab.remove('txtVSpace');
+            infoTab.remove('txtBorder');
+            infoTab.remove('txtAlt');
+            infoTab.remove('txtWidth');
+            infoTab.remove('txtHeight');
+            infoTab.remove('htmlPreview');
+            infoTab.remove('cmbAlign');
+            infoTab.remove('ratioLock');
+        }
+    });
+    CKEDITOR.replace('description');
 </script>
 @stop

@@ -29,6 +29,25 @@
     iframe {
         border: unset;
     }
+    
+    p img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80% !important;
+        height: auto !important;
+    }
+
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+    }
+
+    p {
+        word-break: break-all;
+    }
 </style>
 <section class="product spad">
     <div class="container">
@@ -45,6 +64,9 @@
                                     <iframe src="filegame/{{$file_game}}/index.html" title="Iframe Game"
                                             style="width: 100%;height: 100%;"></iframe>
                                 </div>
+                                @if($game)
+                                    <p>{!! $game->description !!}</p>
+                                @endif
                             </div>
                         </div>
                         <div class="row">
