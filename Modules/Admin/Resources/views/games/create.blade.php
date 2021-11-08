@@ -27,6 +27,17 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
+                                            <label>Danh mục</label>
+                                            <select name="category_id" class="form-control">
+                                                <option value="">----</option>
+                                                @foreach($categories as $category)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
                                             <label>Tên game</label>
                                             <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name">
                                         </div>
