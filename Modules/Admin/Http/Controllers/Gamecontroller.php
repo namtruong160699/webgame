@@ -29,6 +29,7 @@ class Gamecontroller extends Controller
         $game->name = $request->name;
         $game->operating_system = $request->operating_system;
         $game->category_id = $request->category_id;
+        $game->description = $request->description;
         if ($request->hasFile('avatar'))
         {
             $file = upload_image('avatar');
