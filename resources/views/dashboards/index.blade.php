@@ -4,7 +4,6 @@
     'current_menu' => 'dashboard',
 ])
 @section('content')
-@include('components.slide')
 <style>
     .pic_box, .pic_box a {
         overflow: hidden;
@@ -83,7 +82,8 @@
     .txt_box a {
         font-size: 13px;
         line-height: 15px;
-        color: #fff;
+        color: #333;
+        font-weight: 700;
     }
     .txt_box {
         z-index: 1;
@@ -93,10 +93,11 @@
     .txt_box {
         min-height: 0;
         padding: 8px 12px;
+        margin-top: -7px;
     }
     .txt_box {
         width: 100%;
-        background: #333!important;
+        background: #fff!important;
         background-size: 100% 100%!important;
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
