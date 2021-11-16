@@ -38,9 +38,6 @@ Route::group(['namespace' => 'Auth'], function (){
 });
 
 Route::get('/', 'DashboardController@index')->name('client.dashboard');
-Route::get('/{file}', 'GameController@index')->name('get.demo.view');
+Route::get('/{file}-{id}', 'GameController@index')->name('get.games.play');
 Route::get('categories/{slug}-{id}','CategoryController@getListProduct')->name('get.list.product');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('/danh-gia/{id}','RatingController@saveRating')->name('post.rating.game');

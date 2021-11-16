@@ -124,7 +124,7 @@
                             @foreach($games as $game)
                             <div class="col-lg-3 col-md-6 col-sm-6">
                                 <div class="inn_box_panel1_box hasVideo">
-                                    <a href="{{route('get.demo.view',$game->file_game)}}" class="pic_box" data-nid="24695">
+                                    <a href="{{route('get.games.play',[$game->file_game,$game->id])}}" class="pic_box" data-nid="24695">
                                         <div class="thumbnail-image">
                                             <div class="b-loader">
                                                 <img class="b-lazy b-loaded" src="{{asset(pare_url_file($game->avatar))}}" alt="">
@@ -135,7 +135,7 @@
                                         </video>
                                     </a>
                                     <h4 class="txt_box">
-                                        <a href="{{route('get.demo.view',$game->file_game)}}">{{$game->name}}</a>
+                                        <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">{{$game->name}}</a>
                                     </h4>
                                 </div>
                             </div>

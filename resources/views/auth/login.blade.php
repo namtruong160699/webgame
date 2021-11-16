@@ -29,7 +29,7 @@
                             <span class="icon_mail"></span>
                         </div>
                         <div class="input__item">
-                            <input type="password" type="password" placeholder="Password">
+                            <input type="password" name="password" placeholder="Password">
                             <span class="icon_lock"></span>
                         </div>
                         <button type="submit" class="site-btn">Đăng nhập</button>

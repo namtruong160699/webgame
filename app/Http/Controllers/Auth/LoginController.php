@@ -20,13 +20,13 @@ class LoginController extends FrontendController
         $login = $request->only('email','password');
         if (Auth::attempt($login))
         {
-            return redirect()->route('home');
+            return redirect()->route('client.dashboard');
         }
         return redirect()->back();
     }
     public function getLogout()
     {
         Auth::logout();
-        return redirect()->route('home');
+        return redirect()->route('client.dashboard');
     }
 }
