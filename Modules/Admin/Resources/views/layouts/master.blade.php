@@ -6,15 +6,15 @@
     <title>{{ $page_title }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{asset('admin/vendors/iconfonts/mdi/css/materialdesignicons.css')}}">
+    <link rel="stylesheet" href="{{asset('Admin/vendors/iconfonts/mdi/css/materialdesignicons.css')}}">
     <!-- endinject -->
     <!-- vendor css for this page -->
     <!-- End vendor css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{asset('admin/css/shared/style.css')}}">
+    <link rel="stylesheet" href="{{asset('Admin/css/shared/style.css')}}">
     <!-- endinject -->
     <!-- Layout style -->
-    <link rel="stylesheet" href="{{asset('admin/css/demo_1/style.css')}}">
+    <link rel="stylesheet" href="{{asset('Admin/css/demo_1/style.css')}}">
     <!-- Layout style -->
     <link rel="shortcut icon" href="{{asset('asssets/images/favicon.ico')}}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -23,9 +23,9 @@
     <!-- partial:partials/_header.html -->
     <nav class="t-header">
       <div class="t-header-brand-wrapper">
-        <a href="index.html">
-          <img class="logo" src="{{asset('admin/images/logo.svg')}}" alt="">
-          <img class="logo-mini" src="{{asset('admin/images/logo_mini.svg')}}" alt="">
+        <a href="{{route('dashboard')}}">
+          <img class="logo" src="{{asset('Admin/images/logo.svg')}}" alt="">
+          <img class="logo-mini" src="{{asset('Admin/images/logo_mini.svg')}}" alt="">
         </a>
       </div>
       <div class="t-header-content-wrapper">
@@ -96,7 +96,7 @@
                 <div class="dropdown-body">
                   <div class="dropdown-list">
                     <div class="image-wrapper">
-                      <img class="profile-img" src="{{asset('admin/images/profile/male/image_1.png')}}" alt="profile image">
+                      <img class="profile-img" src="{{asset('Admin/images/profile/male/image_1.png')}}" alt="profile image">
                       <div class="status-indicator rounded-indicator bg-success"></div>
                     </div>
                     <div class="content-wrapper">
@@ -106,7 +106,7 @@
                   </div>
                   <div class="dropdown-list">
                     <div class="image-wrapper">
-                      <img class="profile-img" src="{{asset('admin/images/profile/female/image_2.png')}}" alt="profile image">
+                      <img class="profile-img" src="{{asset('Admin/images/profile/female/image_2.png')}}" alt="profile image">
                       <div class="status-indicator rounded-indicator bg-success"></div>
                     </div>
                     <div class="content-wrapper">
@@ -116,7 +116,7 @@
                   </div>
                   <div class="dropdown-list">
                     <div class="image-wrapper">
-                      <img class="profile-img" src="{{asset('admin/images/profile/male/image_3.png')}}" alt="profile image">
+                      <img class="profile-img" src="{{asset('Admin/images/profile/male/image_3.png')}}" alt="profile image">
                       <div class="status-indicator rounded-indicator bg-warning"></div>
                     </div>
                     <div class="content-wrapper">
@@ -172,7 +172,7 @@
       <div class="sidebar">
         <div class="user-profile">
           <div class="display-avatar animated-avatar">
-            <img class="profile-img img-lg rounded-circle" src="{{asset('admin/images/profile/male/image_1.png')}}" alt="profile image">
+            <img class="profile-img img-lg rounded-circle" src="{{asset('Admin/images/profile/male/image_1.png')}}" alt="profile image">
           </div>
           <div class="info-wrapper">
             <p class="user-name">Nguyen Nam Truong</p>
@@ -215,6 +215,12 @@
               </li>
             </ul>
           </li>
+          <li class="{{$current_menu == 'rating' ? 'active' : ''}}">
+            <a href="{{route('admin.get.list.rating')}}">
+              <span class="link-title">Đánh giá</span>
+              <i class="mdi mdi-gauge link-icon"></i>
+            </a>
+          </li>
         </ul>
       </div>
       <!-- partial -->
@@ -226,16 +232,16 @@
     <!--page body ends -->
     <!-- SCRIPT LOADING START FORM HERE /////////////-->
     <!-- plugins:js -->
-    <script src="{{asset('admin/vendors/js/core.js')}}"></script>
+    <script src="{{asset('Admin/vendors/js/core.js')}}"></script>
     <!-- endinject -->
     <!-- Vendor Js For This Page Ends-->
-    <script src="{{asset('admin/vendors/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('admin/vendors/chartjs/Chart.min.js')}}"></script>
-    <script src="{{asset('admin/js/charts/chartjs.addon.js')}}"></script>
+    <script src="{{asset('Admin/vendors/apexcharts/apexcharts.min.js')}}"></script>
+    <script src="{{asset('Admin/vendors/chartjs/Chart.min.js')}}"></script>
+    <script src="{{asset('Admin/js/charts/chartjs.addon.js')}}"></script>
     <!-- Vendor Js For This Page Ends-->
     <!-- build:js -->
-    <script src="{{asset('admin/js/template.js')}}"></script>
-    <script src="{{asset('admin/js/dashboard.js')}}"></script>
+    <script src="{{asset('Admin/js/template.js')}}"></script>
+    <script src="{{asset('Admin/js/dashboard.js')}}"></script>
     <!-- endbuild -->
     @yield('script')
   </body>

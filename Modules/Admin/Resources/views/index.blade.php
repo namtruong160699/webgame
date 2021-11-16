@@ -75,7 +75,7 @@
             <div class="wrapper">
                 <div class="d-flex justify-content-between">
                 <div class="split-header">
-                    <img class="img-ss mt-1 mb-1 mr-2" src="http://127.0.0.1:8000/admin/images/social-icons/instagram.svg" alt="instagram">
+                    <img class="img-ss mt-1 mb-1 mr-2" src="{{asset('Admin/images/social-icons/instagram.svg')}}" alt="instagram">
                     <p class="card-title">Followers Growth</p>
                 </div>
                 <div class="wrapper">
@@ -260,7 +260,7 @@
                 <tbody>
                 <tr>
                     <td class="pr-0 pl-4">
-                    <img class="profile-img img-sm" src="http://127.0.0.1:8000/admin/images/profile/male/image_4.png" alt="profile image">
+                    <img class="profile-img img-sm" src="{{asset('Admin/images/profile/male/image_4.png')}}" alt="profile image">
                     </td>
                     <td class="pl-md-0">
                     <small class="text-black font-weight-medium d-block">Barbara Curtis</small>
@@ -274,7 +274,7 @@
                 </tr>
                 <tr>
                     <td class="pr-0 pl-4">
-                    <img class="profile-img img-sm" src="http://127.0.0.1:8000/admin/images/profile/male/image_3.png" alt="profile image">
+                    <img class="profile-img img-sm" src="{{asset('Admin/images/profile/male/image_3.png')}}" alt="profile image">
                     </td>
                     <td class="pl-md-0">
                     <small class="text-black font-weight-medium d-block">Charlie Hawkins</small>
@@ -288,7 +288,7 @@
                 </tr>
                 <tr>
                     <td class="pr-0 pl-4">
-                    <img class="profile-img img-sm" src="http://127.0.0.1:8000/admin/images/profile/female/image_2.png" alt="profile image">
+                    <img class="profile-img img-sm" src="{{asset('Admin/images/profile/female/image_2.png')}}" alt="profile image">
                     </td>
                     <td class="pl-md-0">
                     <small class="text-black font-weight-medium d-block">Nina Bates</small>
@@ -302,7 +302,7 @@
                 </tr>
                 <tr>
                     <td class="pr-0 pl-4">
-                    <img class="profile-img img-sm" src="http://127.0.0.1:8000/admin/images/profile/male/image_10.png" alt="profile image">
+                    <img class="profile-img img-sm" src="{{asset('Admin/images/profile/male/image_10.png')}}" alt="profile image">
                     </td>
                     <td class="pl-md-0">
                     <small class="text-black font-weight-medium d-block">Hester Richards</small>
@@ -347,10 +347,10 @@
                 <div class="activity-log">
                     <p class="log-name">Ronald Edwards</p>
                     <div class="log-details">Report has been updated <div class="grouped-images mt-2">
-                        <img class="img-sm" src="http://127.0.0.1:8000/admin/images/profile/male/image_4.png" alt="Profile Image" data-toggle="tooltip" title="Gerald Pierce">
-                        <img class="img-sm" src="http://127.0.0.1:8000/admin/images/profile/male/image_5.png" alt="Profile Image" data-toggle="tooltip" title="Edward Wilson">
-                        <img class="img-sm" src="http://127.0.0.1:8000/admin/images/profile/female/image_6.png" alt="Profile Image" data-toggle="tooltip" title="Billy Williams">
-                        <img class="img-sm" src="http://127.0.0.1:8000/admin/images/profile/male/image_6.png" alt="Profile Image" data-toggle="tooltip" title="Lelia Hampton">
+                        <img class="img-sm" src="{{asset('Admin/images/profile/male/image_4.png')}}" alt="Profile Image" data-toggle="tooltip" title="Gerald Pierce">
+                        <img class="img-sm" src="{{asset('Admin/images/profile/male/image_5.png')}}" alt="Profile Image" data-toggle="tooltip" title="Edward Wilson">
+                        <img class="img-sm" src="{{asset('Admin/images/profile/female/image_6.png')}}" alt="Profile Image" data-toggle="tooltip" title="Billy Williams">
+                        <img class="img-sm" src="{{asset('Admin/images/profile/male/image_6.png')}}" alt="Profile Image" data-toggle="tooltip" title="Lelia Hampton">
                         <span class="plus-text img-sm">+3</span>
                     </div>
                     </div>
