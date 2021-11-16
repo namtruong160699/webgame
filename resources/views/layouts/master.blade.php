@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Anime | Template</title>
-
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
@@ -24,6 +24,13 @@
     <link rel="stylesheet" href="{{asset('Client/css/slicknav.min.css')}}" type="text/css">
     <link rel="stylesheet" href="{{asset('Client/css/style.css')}}" type="text/css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+    @if(session('notify'))
+    <script>
+        var TYPE_MESSAGE = "{{session('notify.type')}}";
+        var MESSAGE = "{{session('notify.message')}}";
+    </script>
+    @endif
 </head>
 
 <body>
@@ -57,8 +64,12 @@
                                     </ul>
                                 </li>
                                 <li><a href="#">Liên hệ</a></li>
-                                <li><a href="{{route('get.register')}}">Đăng ký</a></li>
-                                <li><a href="{{route('get.login')}}">Đăng nhập</a></li>
+                                @if(Auth::check())
+                                    <li><a href="{{route('get.logout.user')}}">Đăng xuất</a></li>
+                                @else
+                                    <li><a href="{{route('get.register')}}">Đăng ký</a></li>
+                                    <li><a href="{{route('get.login')}}">Đăng nhập</a></li>
+                                @endif
                             </ul>
                         </nav>
                     </div>
@@ -136,8 +147,30 @@
 <script src="{{asset('Client/js/jquery.slicknav.js')}}"></script>
 <script src="{{asset('Client/js/owl.carousel.min.js')}}"></script>
 <script src="{{asset('Client/js/main.js')}}"></script>
-
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<script type="text/javascript">
+    if (typeof TYPE_MESSAGE != "undefined")
+    {
+        switch (TYPE_MESSAGE) {
+            case 'success':
+                $.notify(MESSAGE, TYPE_MESSAGE);
+                break;
+            case 'error':
+                $.notify(MESSAGE, TYPE_MESSAGE);
+                break;
+            case 'warn':
+                $.notify(MESSAGE, TYPE_MESSAGE);
+                break;
+        }
+    }
+    $(".js-show-login").click(function (event) {
+        event.preventDefault();
+        $.notify("Bạn phải đăng nhập để thực hiện chức năng này!", "warn");
+        return false;
+    })
+</script>
+@yield('script')
 </body>
 
 </html>
