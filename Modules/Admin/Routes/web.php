@@ -24,7 +24,11 @@ Route::prefix('admin')->group(function() {
         Route::get('/','AdminRatingController@index')->name('admin.get.list.rating');
     });
 
-    Route::get('listGame', 'GameController@index')->name('get.list.game');
-    Route::get('createGame', 'GameController@create')->name('get.create.game');
-    Route::post('createGame', 'GameController@store');
+    Route::group(['prefix' => 'game'], function (){
+        Route::get('/', 'AdminGamecontroller@index')->name('get.list.game');
+        Route::get('create', 'AdminGamecontroller@create')->name('get.create.game');
+        Route::post('create', 'AdminGamecontroller@store');
+        Route::get('/update/{id}', 'AdminGamecontroller@edit')->name('get.edit.game');
+        Route::post('/update/{id}', 'AdminGamecontroller@update');
+    });
 });

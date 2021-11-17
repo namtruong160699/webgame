@@ -86,7 +86,7 @@
             <div class="col-md-3 col-sm-6 col-6 equel-grid">
                 <div class="grid">
                     <div class="grid-body text-gray">
-                        <a target="_blank" href="{{asset('filegame/'.$game->file_game)}}">
+                        <a href="{{route('get.edit.game',$game->id)}}">
                             <div class="d-flex">
                                 <div class="app-icon">
                                     <img src="{{asset(pare_url_file($game->avatar))}}">
