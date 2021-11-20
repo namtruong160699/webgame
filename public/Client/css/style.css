@@ -425,7 +425,8 @@ ol {
 .header__right a {
 	display: inline-block;
 	font-size: 18px;
-	color: #ffffff;
+	/* color: #ffffff; */
+	color: #666;
 	margin-right: 30px;
 }
 
@@ -1933,7 +1934,7 @@ ol {
 -----------------------*/
 
 .footer {
-	background: #070720;
+	background: #fff;
 	padding-top: 60px;
 	padding-bottom: 40px;
 	position: relative;

@@ -9,7 +9,7 @@ use ZipArchive;
 use File;
 use App\Models\Category;
 
-class AdminGamecontroller extends Controller
+class AdminGameController extends Controller
 {
     public function index()
     {
@@ -37,6 +37,19 @@ class AdminGamecontroller extends Controller
             {
                 $game->avatar = $file['name'];
             }
+        }
+        if($_FILES['video']['name'] != '')
+        {
+            $file_name = $_FILES['video']['name'];
+            $array = explode(".", $file_name);
+            $name = $array[0];
+            $ext = $array[1];
+            if($ext == 'mp4' || $ext == 'ogg')
+            {
+                $request->video->move(public_path('/uploads/video'), $file_name);
+            }
+
+            $game->video = $file_name;
         }
         if($_FILES['file_game']['name'] != '')
         {
@@ -97,6 +110,19 @@ class AdminGamecontroller extends Controller
             {
                 $game->avatar = $file['name'];
             }
+        }
+        if($_FILES['video']['name'] != '')
+        {
+            $file_name = $_FILES['video']['name'];
+            $array = explode(".", $file_name);
+            $name = $array[0];
+            $ext = $array[1];
+            if($ext == 'mp4' || $ext == 'ogg')
+            {
+                $request->video->move(public_path('/uploads/video'), $file_name);
+            }
+
+            $game->video = $file_name;
         }
         if($_FILES['file_game']['name'] != '')
         {
