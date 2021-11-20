@@ -13,7 +13,7 @@
                     <div class="content-viewport">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-12 equel-grid">
-                                <div class="canvas-unity" style="width: 100%;">
+                                <div class="canvas-unity" style="width: 100%;margin-bottom: 50px;">
                                     <!-- <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
                                             style="width: 100%;height: 100%;"></iframe> -->
                                 </div>
@@ -42,6 +42,14 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            <div class="rating-price">
+                                                <?php
+                                                    $ageDetail = 0;
+                                                    if($game->total_rating) {
+                                                        $ageDetail = round($game->total_number / $game->total_rating, 1, PHP_ROUND_HALF_EVEN);
+                                                    }
+                                                ?>
+                                            </div>
                                             <div class="box component_rating" style="margin-bottom: 20px">
                                                 <h3>Đánh giá sản phẩm</h3>
                                                 <div class="component_rating_content"
@@ -49,7 +57,7 @@
                                                     <div class="rating-item" style="width: 20%;position: relative">
                                                         <span class="fa fa-star"
                                                             style="font-size: 100px;color: #fd9727;display: block;margin: 0 auto;text-align: center"></span><b
-                                                            style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);color: white;font-size: 20px">2</b>
+                                                            style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);color: white;font-size: 20px">{{$ageDetail}}</b>
                                                     </div>
                                                     <div class="list-rating" style="width: 60%;padding: 20px">
                                                         @foreach($arrayRatings as $key => $arrayRating)

@@ -73,11 +73,20 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <label for="">Video</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="video" name="video">
+                                                <label class="custom-file-label" for="">Video</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <label>File Upload</label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="customFile" name="file_game">
-                                                <label class="custom-file-label" for="customFile">Choose file</label>
+                                                <label class="custom-file-label" for="customFile">Only zipped (.zip) files acceptable</label>
                                             </div>
                                         </div>
                                     </div>
