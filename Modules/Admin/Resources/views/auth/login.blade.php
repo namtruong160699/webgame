@@ -17,13 +17,15 @@
     <link rel="stylesheet" href="{{asset('Admin/css/demo_1/style.css')}}">
     <!-- Layout style -->
     <link rel="shortcut icon" href="{{asset('Admin/images/favicon.ico')}}" />
+    <!-- Notify -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css"/>
   </head>
   <body>
     <div class="authentication-theme auth-style_1">
       <div class="row">
-        <div class="col-12 logo-section">
+        <div class="col-12 logo-section" style="margin-bottom: unset;">
           <a href="../../index.html" class="logo">
-            <img src="{{asset('Admin/images/logo.svg')}}" alt="logo" />
+            <img src="{{asset('Admin/images/logo_xgame.png')}}" alt="logo" />
           </a>
         </div>
       </div>
@@ -36,23 +38,23 @@
                   <form enctype="multipart/form-data" method="POST" action="">
                     @csrf
                     <div class="form-group input-rounded">
-                      <input type="text" class="form-control" name="username" placeholder="Username" />
+                      <input type="text" class="form-control" name="username" placeholder="Tên đăng nhập" />
                     </div>
                     <div class="form-group input-rounded">
-                      <input type="password" class="form-control" name="password" placeholder="Password" />
+                      <input type="password" class="form-control" name="password" placeholder="Mật khẩu" />
                     </div>
                     <div class="form-inline">
                       <div class="checkbox">
                         <label>
-                          <input type="checkbox" class="form-check-input" />Remember me <i class="input-frame"></i>
+                          <input type="checkbox" class="form-check-input" />Nhớ tài khoản <i class="input-frame"></i>
                         </label>
                       </div>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block"> Login </button>
+                    <button type="submit" class="btn btn-primary btn-block"> Đăng nhập </button>
                   </form>
                   <div class="signup-link">
-                    <p>Don't have an account yet?</p>
-                    <a href="#">Sign Up</a>
+                    <p>Vẫn chưa có tài khoản ?</p>
+                    <a href="#">Đăng ký</a>
                   </div>
                 </div>
               </div>
@@ -61,7 +63,7 @@
         </div>
       </div>
       <div class="auth_footer">
-        <p class="text-muted text-center">© Label Inc 2019</p>
+        <p class="text-muted text-center">© XGame 2021</p>
       </div>
     </div>
     <!--page body ends -->
@@ -75,5 +77,12 @@
     <!-- build:js -->
     <script src="{{asset('Admin/js/template.js')}}"></script>
     <!-- endbuild -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    <script>
+      @if(session('danger'))
+        $.notify('{{session('danger.message')}}', '{{session('danger.type')}}');
+      @endif
+    </script>
   </body>
 </html>

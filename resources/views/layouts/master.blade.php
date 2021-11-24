@@ -46,7 +46,7 @@
                 <div class="col-lg-2">
                     <div class="header__logo">
                         <a href="{{route('client.dashboard')}}">
-                            <img src="https://xgametaskmanage.com/theme_admin/dist/img/favicon.jpg" alt="">
+                            <img src="{{asset('Client/img/logo_xgame.png')}}" style="width: 40%;" alt="">
                         </a>
                     </div>
                 </div>
