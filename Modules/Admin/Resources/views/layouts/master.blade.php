@@ -190,7 +190,7 @@
           <li class="{{$current_menu == 'category' ? 'active' : ''}}">
             <a href="#sample-pages" data-toggle="collapse" aria-expanded="{{$menu_open == 'category' ? 'true' : 'false'}}">
               <span class="link-title">Danh mục game</span>
-              <i class="mdi mdi-gamepad-variant link-icon"></i>
+              <i class="mdi mdi-certificate link-icon"></i>
             </a>
             <ul class="collapse navigation-submenu" id="sample-pages">
               <li>
@@ -218,7 +218,13 @@
           <li class="{{$current_menu == 'rating' ? 'active' : ''}}">
             <a href="{{route('admin.get.list.rating')}}">
               <span class="link-title">Đánh giá</span>
-              <i class="mdi mdi-gauge link-icon"></i>
+              <i class="mdi mdi-star-circle link-icon"></i>
+            </a>
+          </li>
+          <li>
+            <a href="{{route('admin.logout')}}">
+              <span class="link-title">Đăng xuất</span>
+              <i class="mdi mdi-logout link-icon"></i>
             </a>
           </li>
         </ul>

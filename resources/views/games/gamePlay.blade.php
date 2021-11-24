@@ -14,8 +14,8 @@
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-12 equel-grid">
                                 <div class="canvas-unity" style="width: 100%;margin-bottom: 50px;">
-                                    <!-- <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
-                                            style="width: 100%;height: 100%;"></iframe> -->
+                                    <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
+                                            style="width: 100%;height: 100%;"></iframe>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="row">
