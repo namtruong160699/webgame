@@ -18,13 +18,15 @@
     <!-- Layout style -->
     <link rel="shortcut icon" href="{{asset('asssets/images/favicon.ico')}}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css"/>
   </head>
   <body class="header-fixed">
     <!-- partial:partials/_header.html -->
     <nav class="t-header">
       <div class="t-header-brand-wrapper">
         <a href="{{route('dashboard')}}">
-          <img class="logo" src="{{asset('Admin/images/logo.svg')}}" alt="">
+          <img class="logo" src="{{asset('Admin/images/logo_xgame.png')}}" alt="">
           <img class="logo-mini" src="{{asset('Admin/images/logo_mini.svg')}}" alt="">
         </a>
       </div>

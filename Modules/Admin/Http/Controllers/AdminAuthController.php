@@ -20,6 +20,10 @@ class AdminAuthController extends Controller
         {
             return redirect()->route('dashboard');
         }
+        \Session::flash('danger',[
+            'type' => 'error',
+            'message' => 'Đăng nhập thất bại!'
+        ]);
         return redirect()->back();
     }
 
