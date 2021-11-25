@@ -5,7 +5,7 @@
 ])
 @section('content')
 <link rel="stylesheet" href="{{asset('Client/css/game_play.min.css')}}" type="text/css">
-<section class="product spad">
+<section class="product spad" style="padding-top: unset;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -13,7 +13,7 @@
                     <div class="content-viewport">
                         <div class="row">
                             <div class="col-md-12 col-sm-12 col-12 equel-grid">
-                                <div class="canvas-unity" style="width: 100%;margin-bottom: 50px;">
+                                <div class="canvas-unity" style="width: 100%;margin-bottom: 10px;">
                                     <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
                                             style="width: 100%;height: 100%;"></iframe>
                                 </div>
@@ -50,7 +50,7 @@
                                                     }
                                                 ?>
                                             </div>
-                                            <div class="box component_rating" style="margin-bottom: 20px">
+                                            <div class="box component_rating" style="margin-bottom: 20px; padding: 15px;">
                                                 <h3>Đánh giá sản phẩm</h3>
                                                 <div class="component_rating_content"
                                                     style="display: flex;align-items: center;border-radius: 5px;border: 1px solid #dedede">
@@ -193,6 +193,14 @@
                 4: 'Thích',
                 5: 'Rất thích',
             };
+            $(".js_rating_action").click(function(event) {
+                event.preventDefault();
+                if($(".form_rating").hasClass('hide')) {
+                    $(".form_rating").addClass('active').removeClass('hide');
+                }else {
+                    $(".form_rating").addClass('hide').removeClass('active');
+                }
+            });
             listStart.mouseover(function() {
                 let $this = $(this);
                 let number = $this.attr('data-key');
@@ -204,14 +212,6 @@
                         $(this).addClass('rating_active');
                     }
                     $(".list_text").text('').text(listStartText[number]).show();
-                });
-                $(".js_rating_action").click(function(event) {
-                    event.preventDefault();
-                    if($(".form_rating").hasClass('hide')) {
-                        $(".form_rating").addClass('active').removeClass('hide');
-                    }else {
-                        $(".form_rating").addClass('hide').removeClass('active');
-                    }
                 });
                 $(".js_rating_game").click(function(event) {
                     event.preventDefault();
@@ -226,7 +226,7 @@
                             type: 'POST',
                             data: {
                                 number: number,
-                                r_content: content
+                                content: content
                             }
                         }).done(function(result) {
                             if (result.code == 1) {
