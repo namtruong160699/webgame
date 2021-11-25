@@ -17,7 +17,7 @@
                                     <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
                                             style="width: 100%;height: 100%;"></iframe>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-12" id="games_played" data-id="{{$game->id}}">
                                     <div class="row">
                                         <div class="col-md-8 col-lg-8">
                                             <div class="box game-description">
@@ -193,14 +193,6 @@
                 4: 'Thích',
                 5: 'Rất thích',
             };
-            $(".js_rating_action").click(function(event) {
-                event.preventDefault();
-                if($(".form_rating").hasClass('hide')) {
-                    $(".form_rating").addClass('active').removeClass('hide');
-                }else {
-                    $(".form_rating").addClass('hide').removeClass('active');
-                }
-            });
             listStart.mouseover(function() {
                 let $this = $(this);
                 let number = $this.attr('data-key');
@@ -211,32 +203,60 @@
                     {
                         $(this).addClass('rating_active');
                     }
-                    $(".list_text").text('').text(listStartText[number]).show();
                 });
-                $(".js_rating_game").click(function(event) {
-                    event.preventDefault();
-                    let content = $("#ra_content").val();
-                    let number = $(".number_rating").val();
-                    let url = $(this).attr('href');
-
-                    if(content && number)
-                    {
-                        $.ajax({
-                            url: url,
-                            type: 'POST',
-                            data: {
-                                number: number,
-                                content: content
-                            }
-                        }).done(function(result) {
-                            if (result.code == 1) {
-                                alert("Gửi đánh giá thành công!");
-                                location.reload();
-                            }   
-                        });
-                    }
-                });
+                $(".list_text").text('').text(listStartText[number]).show();
             });
+            $(".js_rating_action").click(function(event) {
+                event.preventDefault();
+                if($(".form_rating").hasClass('hide')) {
+                    $(".form_rating").addClass('active').removeClass('hide');
+                }else {
+                    $(".form_rating").addClass('hide').removeClass('active');
+                }
+            });
+            $(".js_rating_game").click(function(event) {
+                event.preventDefault();
+                let content = $("#ra_content").val();
+                let number = $(".number_rating").val();
+                let url = $(this).attr('href');
+
+                if(content && number)
+                {
+                    $.ajax({
+                        url: url,
+                        type: 'POST',
+                        data: {
+                            number: number,
+                            content: content
+                        }
+                    }).done(function(result) {
+                        if (result.code == 1) {
+                            alert("Gửi đánh giá thành công!");
+                            location.reload();
+                        }   
+                    });
+                }
+            });
+
+            // Lưu id game vào storage
+            let idGame = $("#games_played").attr('data-id');
+
+            // Lấy giá trị storage
+            let games = localStorage.getItem('games');
+
+            if(games == null) {
+                arrayGame = new Array();
+                arrayGame.push(idGame);
+                localStorage.setItem('games', JSON.stringify(arrayGame));
+            }else {
+                // Chuyển về mảng
+                games = $.parseJSON(games);
+                if(games.indexOf(idGame) == -1) {
+                    games.push(idGame);
+                    localStorage.setItem('games', JSON.stringify(games));
+                }
+                // console.log(games);
+            }
         });
     </script>
 @endsection
