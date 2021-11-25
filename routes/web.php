@@ -41,3 +41,7 @@ Route::get('/', 'DashboardController@index')->name('client.dashboard');
 Route::get('/{file}-{id}', 'GameController@index')->name('get.games.play');
 Route::get('categories/{slug}-{id}','CategoryController@getListProduct')->name('get.list.product');
 Route::post('/danh-gia/{id}','RatingController@saveRating')->name('post.rating.game');
+
+Route::group(['prefix'=>'ajax'],function (){
+    Route::post('/view-game','DashboardController@renderGame')->name('get.games.played');
+});
