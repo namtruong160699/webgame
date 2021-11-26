@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Rating;
+use App\Models\UserFavourite;
 use Illuminate\Support\Facades\DB;
 
 class GameController extends FrontendController
@@ -61,5 +62,63 @@ class GameController extends FrontendController
 
             return view('games.gamePlay', $viewData);
         }
+    }
+
+    public function insertLike(Request $request, $id)
+    {
+        if($request->ajax())
+        {
+            // Kiểm tra tồn tại game
+            $game = Game::find($id);
+            if(!$game) {
+                return response(['message' => 'Game không tồn tại']);
+            }
+            $message = 'Thêm yêu thích thành công!';
+            try {
+                \DB::table('user_favourite')
+                    ->insert([
+                        'game_id' => $id,
+                        'user_id' => get_data_user('web'),
+                    ]);
+            } catch (\Exception $e) {
+                $message = 'Game này đã được yêu thích';
+            }
+            return response(['message' => $message]);
+        }
+    }
+
+    public function gameFavGame(Request $request)
+    {
+        $game_id = $request['game_id'];
+
+        $fav = \DB::table('user_favourite')
+            ->where('game_id', $game_id)
+            ->where('user_id', get_data_user('web'))
+            ->first();
+
+        if(!$fav) {
+            $newFav = new UserFavourite;
+            $newFav->game_id = $game_id;
+            $newFav->user_id = get_data_user('web');
+            $newFav->fav = 1;
+            $newFav->save();
+            $is_fav = 1;
+        }elseif($fav->fav == 1) {
+            \DB::table('user_favourite')
+                ->where('game_id', $game_id)
+                ->where('user_id', get_data_user('web'))
+                ->delete();
+                $is_fav = 0;
+        }elseif($fav->fav == 0) {
+            \DB::table('user_favourite')
+                ->where('game_id', $game_id)
+                ->where('user_id', get_data_user('web'))
+                ->update(['fav'=> 1] );
+                $is_fav = 1;
+        }
+        $response = array(
+            'is_fav'=>$is_fav,
+        );
+        return response()->json($response, 200);
     }
 }

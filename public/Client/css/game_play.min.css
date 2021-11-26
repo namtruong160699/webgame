@@ -259,4 +259,84 @@ i.tag-36x28-205, i.tag-36x28-582 {
 .hide {
     display: none;
 }
+.game-rating .active {
+    color: #ff9705 !important;
+}
+.game-rating .text-danger {
+    color: #007bff !important;
+    font-size: 40px;
+    cursor: pointer;
+}
+.game-rating .text-dark {
+    color: #212529 !important;
+    font-size: 40px;
+    cursor: pointer;
+}
+/* game infos */
+.game-info-container {
+    display: -webkit-box;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: space-between;
+    -webkit-box-pack: space-between;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: space-between;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    -o-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 20px 20px 13px;
+}
+.item-show .box>.content {
+    position: relative;
+}
+.content {
+    display: -webkit-box;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    -o-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    background: #fff;
+    overflow: hidden;
+}
+.sub-infos {
+    color: #666;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 0 0 15px;
+}
+.sub-infos span {
+    margin: 0 15px 0 0;
+}
+.right-part .vote {
+    display: -webkit-box;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
 /* end new css */
