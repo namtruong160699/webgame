@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\Rating;
 use App\Models\UserFavourite;
 use Illuminate\Support\Facades\DB;
+use App\Services\ProcessViewService;
 
 class GameController extends FrontendController
 {
@@ -52,6 +53,8 @@ class GameController extends FrontendController
                     }
                 }
             }
+
+            ProcessViewService::view('games','played','game', $id);
 
             $viewData = [
                 'games'         => $games,
