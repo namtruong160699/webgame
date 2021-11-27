@@ -16,8 +16,8 @@
                                 <div class="item-box box">
                                     <div class="content">
                                         <div class="canvas-unity" style="width: 100%;margin-bottom: 10px;">
-                                            <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
-                                                    style="width: 100%;height: 100%;"></iframe>
+                                            <!-- <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
+                                                    style="width: 100%;height: 100%;"></iframe> -->
                                         </div>
                                     </div>
                                     <div class="game-info-container infos" id="details">
@@ -25,7 +25,7 @@
                                             <h3>{{$game->name}}</h3>
                                             <div class="sub-infos">
                                                 <span class="sub-infos-line">
-                                                    <span>21,969 số lần chơi</span>
+                                                    <span>{{$game->played}} số lần chơi</span>
                                                 </span>
                                             </div>
                                         </div>
