@@ -34,7 +34,15 @@
                     @endforeach
                 </div>
             </div>
-            <div class="live__product" id="games_played"></div>
+            <div class="blog-pagination text-center">
+                <ul class="pagination">
+                    <li><a href="#"><span class="ti-angle-double-left"></span></a></li>
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#"><span class="ti-angle-double-right"></span></a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
