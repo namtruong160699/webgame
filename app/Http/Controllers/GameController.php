@@ -23,7 +23,7 @@ class GameController extends FrontendController
         if ($id = array_pop($url))
         {
             $game = Game::find($id);
-            $games = Game::paginate(4);
+            $games = Game::paginate(6);
             $ratings = Rating::with('user:id,name')->where('ra_game_id',$id)->orderBy('id','DESC')->paginate(4);
 
             // Gom nhóm lại tổng xem

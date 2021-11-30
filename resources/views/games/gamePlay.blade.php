@@ -4,245 +4,343 @@
     'current_menu' => 'dashboard',
 ])
 @section('content')
-<link rel="stylesheet" href="{{asset('Client/css/game_play.min.css')}}" type="text/css">
-<section class="product spad">
+@section('style')
+    <style>
+        @media (min-width: 1200px) {
+            .container {
+                width: 1590px !important;
+            }
+        }
+        .content {
+            display: -webkit-box;
+            display: -moz-flexbox;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -o-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+            -webkit-border-top-left-radius: 6px;
+            -webkit-border-top-right-radius: 6px;
+            -webkit-border-bottom-right-radius: 0;
+            -webkit-border-bottom-left-radius: 0;
+            -moz-border-radius-topleft: 6px;
+            -moz-border-radius-topright: 6px;
+            -moz-border-radius-bottomright: 0;
+            -moz-border-radius-bottomleft: 0;
+            background: #fff;
+            overflow: hidden;
+        }
+        .item-container {
+            position: relative;
+            text-align: center;
+            z-index: 3;
+            height: 700px;
+        }
+        iframe {
+            display: -webkit-box;
+            display: -moz-flexbox;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-direction: column;
+            -moz-flex-direction: column;
+            -ms-flex-direction: column;
+            -o-flex-direction: column;
+            flex-direction: column;
+            /* -webkit-box-flex: 1; */
+            -ms-flex-positive: 1;
+            flex-grow: 1;
+            margin: 0 auto;
+            position: relative;
+            z-index: 3;
+            border: unset;
+        }
+        .text-danger {
+            color: #F78802 !important;
+            cursor: pointer;
+        }
+        .text-dark {
+            color: #212529 !important;
+            cursor: pointer;
+        }
+        .col-sm-2 {
+            padding-right: unset;
+            padding-left: unset;
+        }
+        .box {
+            background-color: #fff;
+        }
+    </style>
+@endsection
+<section id="blog-details" class="blog-details-section pt60  pb80" style="background-color: #f1f1f1">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="page-content-wrapper-inner">
-                    <div class="content-viewport">
-                        <div class="row">
-                            <div class="col-md-12 col-sm-12 col-12 equel-grid">
-                                <div class="item-box box">
-                                    <div class="content">
-                                        <div class="canvas-unity" style="width: 100%;margin-bottom: 10px;">
-                                            <!-- <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
-                                                    style="width: 100%;height: 100%;"></iframe> -->
-                                        </div>
-                                    </div>
-                                    <div class="game-info-container infos" id="details">
-                                        <div class="left-part">
-                                            <h3>{{$game->name}}</h3>
-                                            <div class="sub-infos">
-                                                <span class="sub-infos-line">
-                                                    <span>{{$game->played}} số lần chơi</span>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="right-part">
-                                            <div class="vote">
-                                                <div>
-                                                    <?php
-                                                        $getGame = \DB::table('games')
-                                                            ->join('user_favourite','user_favourite.game_id','=','games.id')
-                                                            ->where('games.id', $game->id)
-                                                            ->where('user_favourite.user_id', Auth::id())
-                                                            ->get()
-                                                            ->toArray();
-                                                        ?>
-                                                    @if(!empty($getGame))
-                                                        <span class="game-rating">
-                                                            <i id="favorite" data-gameid="{{$game->id}}" class="fa fa-thumbs-up like-game text-danger"></i>
-                                                        </span>
-                                                    @else
-                                                        <span class="game-rating">
-                                                            <i id="favorite" data-gameid="{{$game->id}}" class="fa fa-thumbs-up {{\Auth::id() ? 'like-game' : 'js-show-login'}} text-dark"></i>
-                                                        </span>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
+            <div class="blog-details-section-content">
+                <div class="row">
+                    <div class="col-sm-9">
+                        <div class="blog-details-section-left-side  pb80">
+                            <div class="blog-details-main-pic">
+                                <div class="content">
+                                    <div class="item-container">
+                                        <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
+                                            style="width: 100%;height: 100%;"></iframe>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12" id="games_played" data-id="{{$game->id}}">
-                                <div class="row">
-                                    <div class="col-md-8 col-lg-8">
-                                        <div class="box game-description">
-                                            <div class="row title-container">
-                                                <div class="col-md-12">
-                                                    <h3 class="block-title uppercase">Chi tiết game</h3>
-                                                </div>
-                                            </div>
-                                            <div class="row description-container">
-                                                <div class="col-md-12">
-                                                    <div class="ltr description">
-                                                        @if($game)
-                                                            <p>{!! $game->description !!}</p>
-                                                        @endif
-                                                    </div>
-                                                    <div class="game-info">
-                                                        <div class="item">
-                                                            <span class="name">Đã thêm vào</span>
-                                                            <span class="data">30 Jun 2021</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- <div class="box like_game">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <a class="{{!\Auth::id() ? 'js-show-login' : 'js_like_game'}}" title="Yêu thích" href="{{route('ajax_get.user.add_favourite',$game->id)}}"><i class="fa fa-heart"></i> Like</a>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        <div class="rating-price">
+                            <!-- /img -->
+                            <div class="blog-single-text  pb50 box">
+                                <div class="blog-head-title pt15 pb20">
+                                    <h2 class="black"><a href="#">{{$game->name}}</a></h2>
+                                </div>
+                                <!-- /head -->
+                                <div class="blog-recent-post-meta">
+                                    <?php
+                                        $getGame = \DB::table('games')
+                                            ->join('user_favourite','user_favourite.game_id','=','games.id')
+                                            ->where('games.id', $game->id)
+                                            ->where('user_favourite.user_id', Auth::id())
+                                            ->get()
+                                            ->toArray();
+                                        ?>
+                                    <ul class="meta-list pb20 mb20">
+                                        <li><a class="black" href="#">{{$game->played}} số lần chơi</a></li>
+                                        <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2021</a></li>
+                                        @if(!empty($getGame))
+                                            <li class="pull-right"><span id="favorite" data-gameid="{{$game->id}}" class="mr5 ti-heart like-game text-danger"></span></li>
+                                        @else
+                                            <li class="pull-right"><span id="favorite" data-gameid="{{$game->id}}" class="mr5 ti-heart {{\Auth::id() ? 'like-game' : 'js-show-login'}} text-dark"></span></li>
+                                        @endif
+                                    </ul>
+                                </div>
+                                <!-- recent-post-meta -->
+                                <div class="blog-details-text">
+                                    @if($game)
+                                        <p>{!! $game->description !!}</p>
+                                    @endif
+                                </div>
+                            </div>
+                            <!-- / blog-single-text-->
+                        </div>
+
+                        <div class="comment-area">
+                            <div class="comment-box mb50 box">
+                                <?php
+                                    $ageDetail = 0;
+                                    if($game->total_rating) {
+                                        $ageDetail = round($game->total_number / $game->total_rating, 1, PHP_ROUND_HALF_EVEN);
+                                    }
+                                ?>
+                                <h3>Đánh giá</h3>
+                                <div class="component_rating_content"
+                                    style="display: flex;align-items: center;border-radius: 5px;border: 1px solid #dedede">
+                                    <div class="rating-item" style="width: 15%;position: relative">
+                                        <span class="mr5 ti-star"
+                                            style="font-size: 100px;color: #fd9727;display: block;margin: 0 auto;text-align: center"></span><b
+                                            style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);color: white;font-size: 20px">{{$ageDetail}}</b>
+                                    </div>
+                                    <div class="list-rating" style="width: 65%;padding: 20px">
+                                        @foreach($arrayRatings as $key => $arrayRating)
                                             <?php
-                                                $ageDetail = 0;
-                                                if($game->total_rating) {
-                                                    $ageDetail = round($game->total_number / $game->total_rating, 1, PHP_ROUND_HALF_EVEN);
-                                                }
+                                                $itemAge = round(($arrayRating['total'] / $game->total_rating) * 100,0)
                                             ?>
-                                        </div>
-                                        <div class="box component_rating" style="margin-bottom: 20px; padding: 15px;">
-                                            <h3>Đánh giá</h3>
-                                            <div class="component_rating_content"
-                                                style="display: flex;align-items: center;border-radius: 5px;border: 1px solid #dedede">
-                                                <div class="rating-item" style="width: 20%;position: relative">
-                                                    <span class="fa fa-star"
-                                                        style="font-size: 100px;color: #fd9727;display: block;margin: 0 auto;text-align: center"></span><b
-                                                        style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);color: white;font-size: 20px">{{$ageDetail}}</b>
+                                            <div class="item_rating" style="display: flex;align-items: center">
+                                                <div style="width: 10%;font-size: 14px">
+                                                    {{ $key }} <span class="mr5 ti-star"></span>
                                                 </div>
-                                                <div class="list-rating" style="width: 60%;padding: 20px">
-                                                    @foreach($arrayRatings as $key => $arrayRating)
-                                                        <?php
-                                                            $itemAge = round(($arrayRating['total'] / $game->total_rating) * 100,0)
-                                                        ?>
-                                                        <div class="item_rating" style="display: flex;align-items: center">
-                                                            <div style="width: 10%;font-size: 14px">
-                                                                {{ $key }} <span class="fa fa-star"></span>
-                                                            </div>
-                                                            <div style="width: 70%;margin: 0 20px">
-                                                                <span
-                                                                    style="width: 100%;height: 8px;display: block;background-color: #dedede"><b
-                                                                        style="width: {{$itemAge}}%;background-color: #f25800;display: block;height: 100%"></b></span>
-                                                            </div>
-                                                            <div style="width: 20%">
-                                                                <a style="display: inline-block;color: #288ad6" href="">{{$arrayRating['total']}} đánh giá ({{$itemAge}}%)</a>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
+                                                <div style="width: 60%;margin: 0 20px">
+                                                    <span
+                                                        style="width: 100%;height: 8px;display: block;background-color: #dedede"><b
+                                                            style="width: {{$itemAge}}%;background-color: #f25800;display: block;height: 100%"></b></span>
                                                 </div>
                                                 <div style="width: 30%">
-                                                    <a href="" class="{{\Auth::id() ? 'js_rating_action' : 'js-show-login'}}"
-                                                    style="width: 200px;background-color: #288ad6;padding: 10px;color: white;border-radius: 5px">Gửi đánh giá của bạn</a>
+                                                    <a style="display: inline-block;color: #288ad6" href="">{{$arrayRating['total']}} đánh giá ({{$itemAge}}%)</a>
                                                 </div>
                                             </div>
-                                            <div class="form_rating hide">
-                                                <div style="display: flex;margin-top: 15px;font-size: 15px">
-                                                    <p style="margin-bottom: 0">Chọn đánh giá của bạn</p>
-                                                    <span style="margin: 0 15px" class="list_start">
-                                                        @for($i = 1 ; $i<=5 ; $i++)
-                                                            <i class="fa fa-star" data-key="{{$i}}"></i>
-                                                        @endfor
-                                                    </span>
-                                                    <span class="list_text"></span>
-                                                    <input type="hidden" value="" class="number_rating">
-                                                </div>
-                                                <div style="margin-top: 15px">
-                                                    <textarea class="form-control" name="" id="ra_content" cols="30"
-                                                            rows="3"></textarea>
-                                                </div>
-                                                <div style="margin-top: 15px">
-                                                    <a class="js_rating_game"
-                                                    style="width: 200px;background-color: #288ad6;padding: 10px;color: white;border-radius: 5px"
-                                                    href="{{route('post.rating.game',$game)}}">Gửi đánh giá</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="box list_rating" style="padding: 15px;">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <h3 class="block-title uppercase" style="padding: unset !important;">Bình luận <span class="number-with-dot comments-counter counter">1006</span></h3>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    @if(isset($ratings))
-                                                        @foreach($ratings as $rating)
-                                                        <div class="rating_item" style="margin: 10px 0">
-                                                            <div>
-                                                                <span
-                                                                    style="color: #333;font-weight: bold;text-transform: capitalize">{{isset($rating->user->name) ? $rating->user->name : '[N\A]'}}</span>
-                                                                <a href="" style="color: #2ba832"><i class="fa fa-check-circle"></i> Members</a>
-                                                            </div>
-                                                            <p style="margin-bottom: 0">
-                                                            <span class="game-rating">
-                                                                @for($i = 1 ; $i <= 5 ; $i ++)
-                                                                    <i class="fa fa-star {{ $i <= $rating->ra_number ? 'active' : '' }}"></i>
-                                                                @endfor
-                                                            </span>
-                                                                <span>{{$rating->ra_content}}</span>
-                                                            </p>
-                                                            <div>
-                                                                <span>
-                                                                    <i class="fa fa-clock-o"> {{$rating->created_at}}</i>
-                                                                </span>
-                                                            </div>
+                                        @endforeach
+                                    </div>
+                                    <div style="width: 20%">
+                                        <a href="" class="{{\Auth::id() ? 'js_rating_action' : 'js-show-login'}}"
+                                        style="width: 200px;background-color: #288ad6;padding: 10px;color: white;border-radius: 5px">Gửi đánh giá của bạn</a>
+                                    </div>
+                                </div>
+                                <div class="form_rating hide">
+                                    <div style="display: flex;margin-top: 15px;font-size: 15px">
+                                        <p style="margin-bottom: 0">Chọn đánh giá của bạn</p>
+                                        <span style="margin: 0 15px" class="list_start">
+                                            @for($i = 1 ; $i<=5 ; $i++)
+                                                <span class="mr5 ti-star" data-key="{{$i}}"></span>
+                                            @endfor
+                                        </span>
+                                        <span class="list_text"></span>
+                                        <input type="hidden" value="" class="number_rating">
+                                    </div>
+                                    <div style="margin-top: 15px">
+                                        <textarea class="form-control" name="" id="ra_content" cols="30"
+                                                rows="3"></textarea>
+                                    </div>
+                                    <div style="margin-top: 15px">
+                                        <a class="js_rating_game"
+                                        style="width: 200px;background-color: #288ad6;padding: 10px;color: white;border-radius: 5px"
+                                        href="{{route('post.rating.game',$game)}}">Gửi đánh giá</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reply-comment mb50 box">
+                                <div class="side-bar-title mb40">
+                                    <h2>Các game liên quan</h2>
+                                </div>
+                                <div class="client-name-reply pb70">
+                                    <div class="row">
+                                        @foreach($games as $game)
+                                            <div class="col-sm-2">
+                                                <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
+                                                    <div class="event-list-item colmd4">
+                                                        <div class="event-list-pic">
+                                                            <img class="img-custom" src="{{asset(pare_url_file($game->avatar))}}" alt="image">
                                                         </div>
-                                                        @endforeach
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="box items-grid related-items">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <h3 class="block-title uppercase">Các trò chơi liên quan</h3>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                            @foreach($games as $game)
-                                                <div class="col-md-3 col-sm-6 col-6 equel-grid">
-                                                    <div class="gameItem">
-                                                        <div class="gameItemImg">
-                                                            <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
-                                                                <img src="{{asset(pare_url_file($game->avatar))}}" width="120" height="100">
-                                                            </a>
-                                                        </div>
-                                                        <div class="gameItemName-o">
-                                                            <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">{{$game->name}}</a>
+                                                        <div class="event-text clearfix ">
+                                                            <p class="title-custom">{{$game->name}}</p>
+                                                            <p class="plays-count">{{$game->played}} chơi</p>
                                                         </div>
                                                     </div>
-                                                </div>
-                                            @endforeach
+                                                </a>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 col-lg-4">
-                                        <div class="box tags">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="block-title uppercase">Gắn thẻ <a href="#">Tất cả các thẻ</a></div>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-12 tags-list">
-                                                    <a href="/tags/1_player"><i class="tag-36x28 tag-36x28-games tag-36x28-10"></i><p>1 Người chơi</p></a>
-                                                    <a href="/tags/blood"><i class="tag-36x28 tag-36x28-games tag-36x28-49"></i><p>Máu</p></a>
-                                                    <a href="/tags/mouse_skill"><i class="tag-36x28 tag-36x28-games tag-36x28-83"></i><p>Kỹ năng Dùng chuột</p></a>
-                                                    <a href="/tags/3d"><i class="tag-36x28 tag-36x28-games tag-36x28-205"></i><p>3D</p></a>
-                                                    <a href="/tags/violence"><i class="tag-36x28 tag-36x28-games tag-36x28-231"></i><p>Bạo lực</p></a>
-                                                    <a href="/tags/running"><i class="tag-36x28 tag-36x28-games tag-36x28-233"></i><p>Chạy đua</p></a>
-                                                    <a href="/tags/android_game"><i class="tag-36x28 tag-36x28-games tag-36x28-313"></i><p>Android</p></a>
-                                                    <a href="/tags/free_game"><i class="tag-36x28 tag-36x28-games tag-36x28-320"></i><p>Miễn phí</p></a>
-                                                    <a href="/tags/unity3d"><i class="tag-36x28 tag-36x28-games tag-36x28-334"></i><p>Unity3D</p></a>
-                                                    <a href="/tags/mobile"><i class="tag-36x28 tag-36x28-games tag-36x28-349"></i><p>Di động</p></a>
-                                                    <a href="/tags/touchscreen"><i class="tag-36x28 tag-36x28-games tag-36x28-354"></i><p>Cảm ứng</p></a>
-                                                    <a href="/tags/webgl"><i class="tag-36x28 tag-36x28-games tag-36x28-380"></i><p>WebGL</p></a>
-                                                    <a href="/tags/io_games"><i class="tag-36x28 tag-36x28-games tag-36x28-1150"></i><p>io Games</p></a>
-                                                    <a href="/tags/crazy"><i class="tag-36x28 tag-36x28-games tag-36x28-1174"></i><p>Trò chơi điên rồ</p></a>
-                                                    <a href="/tags/squid_game"><i class="tag-36x28 tag-36x28-games tag-36x28-1203"></i><p>Squid Game</p></a>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- /col-sm-8 -->
+
+                    <div class="col-sm-3">
+                        <div class="side-bar-content ml15">
+                            <div class="side-bar-search mb40">
+                                <form action="#" method="get">
+                                    <input type="text" class="" placeholder="Search here...">
+                                    <button type="submit"><span class="ti-search"></span></button>
+                                </form>
+                            </div>
+                            <!-- /side-bar-search -->
+                            <div class="category mb40">
+                                <div class="side-bar-title mb40">
+                                    <h2 class="widgettitle">Categories</h2>
+                                </div>
+                                <!-- /title -->
+                                <div class="category-item box">
+                                    <ul class="category-item-list">
+                                        <li><a href="#">Donation</a><span class="badge pull-right">25</span></li>
+                                        <li><a href="#">Education</a><span class="badge pull-right">25</span></li>
+                                        <li><a href="#">Help </a><span class="badge pull-right">75</span></li>
+                                        <li><a href="#">Donation</a><span class="badge pull-right">14</span></li>
+                                        <li><a href="#">Education</a><span class="badge pull-right">26</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /category-item -->
+
+                            <div class="blog-recent-post mb40">
+                                <div class="side-bar-title mb40">
+                                    <h2 class="widgettitle">Recent Post</h2>
+                                </div>
+                                <!-- /title -->
+                                <div class="post-item box">
+                                    <div class="blog-recent-post-item mb20">
+                                        <div class="blog-recent-post-pic mr25 pull-left">
+                                            <img src="{{asset('Client/assets/img/recent-1.jpg')}}" alt="image">
+                                        </div>
+                                        <!-- /img -->
+                                        <div class="blog-recent-post-text">
+                                            <div class="blog-recent-post-head">
+                                                <a href="#">Dolore magna aliqua Ut enim ad minim</a>
+                                            </div>
+                                            <!-- /post-head -->
+                                            <div class="blog-recent-post-meta mt5">
+                                                <ul class="meta-list">
+                                                    <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2017</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /post-item -->
+
+                                    <div class="blog-recent-post-item mb20">
+                                        <div class="blog-recent-post-pic mr25 pull-left">
+                                            <img src="{{asset('Client/assets/img/recent-2.jpg')}}" alt="image">
+                                        </div>
+                                        <!-- /img -->
+                                        <div class="blog-recent-post-text">
+                                            <div class="blog-recent-post-head">
+                                                <a href="#">Dolore magna aliqua Ut enim ad minim</a>
+                                            </div>
+                                            <!-- /post-head -->
+                                            <div class="blog-recent-post-meta mt5">
+                                                <ul class="meta-list">
+                                                    <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2017</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /post-item -->
+
+                                    <div class="blog-recent-post-item">
+                                        <div class="blog-recent-post-pic mr25 pull-left">
+                                            <img src="{{asset('Client/assets/img/recent-3.jpg')}}" alt="image">
+                                        </div>
+                                        <!-- /img -->
+                                        <div class="blog-recent-post-text">
+                                            <div class="blog-recent-post-head">
+                                                <a href="#">Dolore magna aliqua Ut enim ad minim</a>
+                                            </div>
+                                            <!-- /post-head -->
+                                            <div class="blog-recent-post-meta mt5">
+                                                <ul class="meta-list">
+                                                    <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2017</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /recent-post-item -->
+                                </div>
+                            </div>
+                            <!-- /blog-recent-post -->
+
+                            <div class="instagram-pic">
+                                <div class="side-bar-title mb40">
+                                    <h2 class="widgettitle">Instagram</h2>
+                                </div>
+                                <!-- /title -->
+
+                                <div class="instagram-pic-list box">
+                                    <ul class="footer-gallery text-center">
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-1.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-2.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-3.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-4.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-9.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-6.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-7.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-8.jpg')}}" alt="image"></a></li>
+                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-9.jpg')}}" alt="image"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- /instagram-pic-list -->
+                        </div>
+                    </div>
+                    <!-- /col-md-4 -->
                 </div>
+                <!-- /row -->
             </div>
         </div>
     </div>
@@ -257,7 +355,7 @@
         });
 
         $(function() {
-            let listStart = $(".list_start .fa");
+            let listStart = $(".list_start .ti-star");
             listStartText = {
                 1: 'Ghét',
                 2: 'Không thích',
@@ -329,20 +427,6 @@
                 }
                 // console.log(games);
             }
-            // Like game
-            $(".js_like_game").click(function(event) {
-                event.preventDefault();
-                let $this = $(this);
-                let URL = $this.attr('href');
-                if(URL) {
-                    $.ajax({
-                        method: 'POST',
-                        url: URL,
-                    }).done(function(result) {
-                        alert(result.message);
-                    });
-                }
-            });
             //Like game new
             $(".like-game").on("click", function(event) {
                 game_id = $(this).data("gameid");
