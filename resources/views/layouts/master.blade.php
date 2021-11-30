@@ -28,11 +28,11 @@
 	<!-- animate.css -->
 	<link rel="stylesheet" type="text/css" href="{{asset('Client/assets/css/animate.css')}}">
 	<!-- REVOLUTION STYLE SHEETS -->
-	<link rel="stylesheet" type="text/css" href="rev-slider/css/settings.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('Client/rev-slider/css/settings.css')}}">
 	<!-- REVOLUTION LAYERS STYLES -->
-	<link rel="stylesheet" type="text/css" href="rev-slider/css/layers.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('Client/rev-slider/css/layers.css')}}">
 	<!-- REVOLUTION NAVIGATION STYLES -->
-	<link rel="stylesheet" type="text/css" href="rev-slider/css/navigation.css">
+	<link rel="stylesheet" type="text/css" href="{{asset('Client/rev-slider/css/navigation.css')}}">
 	<!-- menu style -->
 	<link rel="stylesheet" type="text/css" href="{{asset('Client/assets/css/menu.css')}}">
 	<!-- style -->
@@ -293,25 +293,25 @@
 	<script type="text/javascript" src="{{asset('Client/assets/js/jquery.magnific-popup.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('Client/assets/js/waypoints.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('Client/assets/js/jquery.counterup.min.js')}}"></script>
-	<script type="text/javascript" src="{{asset('Client/assets/js/countdown.js')}}"></script>
+	<!-- <script type="text/javascript" src="{{asset('Client/assets/js/countdown.js')}}"></script> -->
 	<script type="text/javascript" src="{{asset('Client/assets/js/parallax.min.js')}}"></script>
 	<script type="text/javascript" src="{{asset('Client/assets/js/circle-progress.js')}}"></script>
 
 
 	<!-- REVOLUTION JS FILES -->
-	<script type="text/javascript" src="rev-slider/js/jquery.themepunch.tools.min.js"></script>
-	<script type="text/javascript" src="rev-slider/js/jquery.themepunch.revolution.min.js"></script>
+	<script type="text/javascript" src="{{asset('Client/rev-slider/js/jquery.themepunch.tools.min.js')}}"></script>
+	<script type="text/javascript" src="{{asset('Client/rev-slider/js/jquery.themepunch.revolution.min.js')}}"></script>
 
     <!-- SLIDER REVOLUTION 5.0 EXTENSIONS (Load Extensions only on Local File Systems !
     The following part can be removed on Server for On Demand Loading) -->
 
-    <script type="text/javascript" src="rev-slider/js/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="{{asset('Client/rev-slider/js/revolution.extension.actions.min.js')}}"></script>
     
-    <script type="text/javascript" src="rev-slider/js/revolution.extension.layeranimation.min.js"></script>
-    <script type="text/javascript" src="rev-slider/js/revolution.extension.navigation.min.js"></script>
-    <script type="text/javascript" src="rev-slider/js/revolution.extension.parallax.min.js"></script>
-    <script type="text/javascript" src="rev-slider/js/revolution.extension.slideanims.min.js"></script>
-    <script type="text/javascript" src="rev-slider/js/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="{{asset('Client/rev-slider/js/revolution.extension.layeranimation.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('Client/rev-slider/js/revolution.extension.navigation.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('Client/rev-slider/js/revolution.extension.parallax.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('Client/rev-slider/js/revolution.extension.slideanims.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('Client/rev-slider/js/revolution.extension.video.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('Client/assets/js/function.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <script type="text/javascript">
