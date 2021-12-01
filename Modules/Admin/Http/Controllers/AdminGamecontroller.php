@@ -8,6 +8,7 @@ use App\Models\Game;
 use ZipArchive;
 use File;
 use App\Models\Category;
+use App\Models\Keyword;
 
 class AdminGameController extends Controller
 {
@@ -20,7 +21,8 @@ class AdminGameController extends Controller
     public function create()
     {
         $categories = $this->getCategories();
-        return view('admin::games.create', compact('categories'));
+        $keywords = Keyword::all();
+        return view('admin::games.create', compact('categories', 'keywords'));
     }
 
     public function store(Request $request)
@@ -75,6 +77,7 @@ class AdminGameController extends Controller
             $game->file_game = $name;
         }
         $game->save();
+        $game->keywords()->attach($request->keywords);
 
         return redirect()->route('get.list.game');
     }
@@ -88,9 +91,13 @@ class AdminGameController extends Controller
     {
         $game = Game::find($id);
         $categories = $this->getCategories();
+        $keywords = Keyword::all();
+        $keywordOfGame = $game->keywords;
         $viewData = [
             'game'          => $game,
-            'categories'    => $categories
+            'categories'    => $categories,
+            'keywords'      => $keywords,
+            'keywordOfGame' => $keywordOfGame
         ];
 
         return view('admin::games.update', $viewData);
@@ -148,6 +155,7 @@ class AdminGameController extends Controller
             $game->file_game = $name;
         }
         $game->save();
+        $game->keywords()->sync($request->keywords);
 
         return redirect()->route('get.list.game');
     }

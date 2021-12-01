@@ -38,4 +38,14 @@ Route::prefix('admin')->middleware('CheckLoginAdmin')->group(function() {
         Route::get('/update/{id}', 'AdminGameController@edit')->name('get.edit.game');
         Route::post('/update/{id}', 'AdminGameController@update');
     });
+
+    Route::group(['prefix' => 'keyword'], function (){
+        Route::get('/','AdminKeywordController@index')->name('admin.get.list.keyword');
+        Route::get('/create','AdminKeywordController@create')->name('admin.get.create.keyword');
+        Route::post('/create','AdminKeywordController@store');
+        Route::get('/update/{id}', 'AdminKeywordController@edit')->name('admin.get.edit.keyword');
+        Route::post('/update/{id}', 'AdminKeywordController@update');
+        Route::get('/delete/{id}','AdminKeywordController@delete')->name('admin.get.delete.keyword');
+        Route::get('/hot/{id}','AdminKeywordController@hot')->name('admin.get.hot.keyword');
+    });
 });

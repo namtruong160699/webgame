@@ -14,11 +14,11 @@ class Category extends Model
     protected $homepage = [
         1 => [
             'name'  => 'Hiện',
-            'class' => 'btn btn-success btn-rounded'
+            'class' => 'badge badge-success'
         ],
         0 => [
             'name'  => 'Ẩn',
-            'class' => 'btn btn-danger btn-rounded'
+            'class' => 'badge badge-danger'
         ]
     ];
 

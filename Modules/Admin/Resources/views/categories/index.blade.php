@@ -44,13 +44,7 @@
                                         </td>
                                         <td>
                                             <a href="{{route('admin.get.action.category',['homepage',$category->id])}}">
-                                                <div class="item-wrapper">
-                                                    <div class="demo-wrapper">
-                                                        <div class="{{$category->getHomePage($category->show_homapage)['class']}}">
-                                                            {{$category->getHomePage($category->show_homapage)['name']}}
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                <label class="{{$category->getHomePage($category->show_homapage)['class']}}">{{$category->getHomePage($category->show_homapage)['name']}}</label>
                                             </a>
                                         </td>
                                         <td>{{$category->title_seo}}</td>
