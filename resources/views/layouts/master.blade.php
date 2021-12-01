@@ -113,7 +113,7 @@
 						@endif
 						<div id="sb-search" class="sb-search " >
 							    <form action="#" method="post">
-								   <input class="sb-search-input " onkeyup="buttonUp();" placeholder="Enter Your Search Word..." type="search" value="" name="search" id="search">
+								   <input class="sb-search-input " onkeyup="buttonUp();" placeholder="Tìm kiếm..." type="search" value="" name="search" id="search">
 								 <input class="sb-search-submit" type="submit"  value="">
 								 <span class="sb-icon-search"><i class="ti-search"></i></span>
 							    </form>

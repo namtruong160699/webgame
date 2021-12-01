@@ -27,6 +27,7 @@
                                     <tr>
                                         <th>Tên danh mục</th>
                                         <th>Progress</th>
+                                        <th>Hiện trang chủ</th>
                                         <th>Title Seo</th>
                                         <th>Thao tác</th>
                                     </tr>
@@ -40,6 +41,17 @@
                                         </td>
                                         <td>
                                             <div class="progress progress-slim"><div class="progress-bar bg-info progress-bar-striped" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div></div>
+                                        </td>
+                                        <td>
+                                            <a href="{{route('admin.get.action.category',['homepage',$category->id])}}">
+                                                <div class="item-wrapper">
+                                                    <div class="demo-wrapper">
+                                                        <div class="{{$category->getHomePage($category->show_homapage)['class']}}">
+                                                            {{$category->getHomePage($category->show_homapage)['name']}}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
                                         </td>
                                         <td>{{$category->title_seo}}</td>
                                         <td class="actions"><i class="mdi mdi-dots-vertical"></i></td>

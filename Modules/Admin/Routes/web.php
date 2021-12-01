@@ -24,6 +24,7 @@ Route::prefix('admin')->middleware('CheckLoginAdmin')->group(function() {
         Route::get('/','AdminCategoryController@index')->name('admin.get.list.category');
         Route::get('/create','AdminCategoryController@create')->name('admin.get.create.category');
         Route::post('/create','AdminCategoryController@store');
+        Route::get('/{action}/{id}','AdminCategoryController@action')->name('admin.get.action.category');
     });
 
     Route::group(['prefix' => 'rating'], function (){
