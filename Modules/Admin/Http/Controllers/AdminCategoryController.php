@@ -16,7 +16,7 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::select('id','name','title_seo','active')->get();
+        $categories = Category::select('id','name','title_seo','active','show_homepage')->get();
         $viewData = [
             'categories' => $categories
         ];
@@ -105,5 +105,23 @@ class AdminCategoryController extends Controller
         }
 
         return $code;
+    }
+
+    public function action($action, $id)
+    {
+        $messages = '';
+        if($action)
+        {
+            $category = Category::find($id);
+            switch ($action) {
+                case 'homepage':
+                    $category->show_homepage = $category->show_homepage ? 0 : 1;
+                    $messages = 'Cập nhật thành công';
+                    $category->save();
+                    break;
+            }
+
+        }
+        return redirect()->back()->with('success',$messages);
     }
 }
