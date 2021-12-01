@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="{{asset('Admin/css/demo_1/style.css')}}">
     <!-- Layout style -->
     <link rel="shortcut icon" href="{{asset('asssets/images/favicon.ico')}}" />
+    <!-- Select2 -->
+    <link rel="stylesheet" href="{{asset('Admin/plugins/select2/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css')}}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css"/>
@@ -217,6 +220,20 @@
               </li>
             </ul>
           </li>
+          <li class="{{$current_menu == 'keyword' ? 'active' : ''}}">
+            <a href="#sample-pages" data-toggle="collapse" aria-expanded="{{$menu_open == 'keyword' ? 'true' : 'false'}}">
+              <span class="link-title">Keyword</span>
+              <i class="mdi mdi-key-variant link-icon"></i>
+            </a>
+            <ul class="collapse navigation-submenu" id="sample-pages">
+              <li>
+                <a href="{{route('admin.get.create.keyword')}}" class="{{\Request::route()->getName() == 'admin.get.create.keyword' ? 'active' : ''}}" aria-expanded="{{\Request::route()->getName() == 'admin.get.create.keyword' ? 'true' : 'false'}}">Thêm mới</a>
+              </li>
+              <li>
+                <a href="{{route('admin.get.list.keyword')}}" class="{{\Request::route()->getName() == 'admin.get.list.keyword' ? 'active' : ''}}" aria-expanded="{{\Request::route()->getName() == 'admin.get.list.keyword' ? 'true' : 'false'}}">Danh sách</a>
+              </li>
+            </ul>
+          </li>
           <li class="{{$current_menu == 'rating' ? 'active' : ''}}">
             <a href="{{route('admin.get.list.rating')}}">
               <span class="link-title">Đánh giá</span>
@@ -248,6 +265,15 @@
     <script src="{{asset('Admin/js/charts/chartjs.addon.js')}}"></script>
     <!-- Vendor Js For This Page Ends-->
     <!-- build:js -->
+    <!-- Select2 -->
+    <script src="{{asset('Admin/plugins/select2/js/select2.full.min.js')}}"></script>
+    <script>
+        $('.select2').select2()
+
+        $('.select2bs4').select2({
+            theme: 'bootstrap4'
+        });
+    </script>
     <script src="{{asset('Admin/js/template.js')}}"></script>
     <script src="{{asset('Admin/js/dashboard.js')}}"></script>
     <!-- endbuild -->

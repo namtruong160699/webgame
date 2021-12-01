@@ -225,12 +225,6 @@
 
                     <div class="col-sm-3">
                         <div class="side-bar-content ml15">
-                            <div class="side-bar-search mb40">
-                                <form action="#" method="get">
-                                    <input type="text" class="" placeholder="Search here...">
-                                    <button type="submit"><span class="ti-search"></span></button>
-                                </form>
-                            </div>
                             <!-- /side-bar-search -->
                             <div class="category mb40">
                                 <div class="side-bar-title mb40">

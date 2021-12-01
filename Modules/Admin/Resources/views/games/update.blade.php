@@ -73,6 +73,16 @@
                                         </div>
                                     </div>
                                     <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Keyword</label>
+                                            <select class="select2bs4" multiple="multiple" data-placeholder="Chọn keywords" name="keywords[]" style="width: 100%;">
+                                                @foreach($keywords as $keyword)
+                                                    <option {{ $keywordOfGame->contains('id', $keyword->id) ? 'selected' : '' }} value="{{$keyword->id}}">{{$keyword->name}}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
                                         <label for="">Video</label>
                                         <div class="input-group">
                                             <div class="custom-file">
@@ -144,5 +154,15 @@
         }
     });
     CKEDITOR.replace('description');
+</script>
+<script>
+    $(function() {
+        if($(".select2bs4").length > 0) {
+            $(".select2bs4").select2({
+                placeholder: 'Chọn keyword',
+                maximumSelectionLength: 3
+            });
+        }
+    });
 </script>
 @stop
