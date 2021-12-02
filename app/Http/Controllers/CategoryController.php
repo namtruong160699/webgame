@@ -13,7 +13,7 @@ class CategoryController extends FrontendController
         parent::__construct();
     }
 
-    public function getListProduct(Request $request)
+    public function getListGame(Request $request)
     {
         $url = $request->segment(2);
         $url = preg_split('/(-)/i', $url);
@@ -21,7 +21,7 @@ class CategoryController extends FrontendController
         if($id = array_pop($url)) {
             $games = Game::where('category_id', $id);
 
-            $games = $games->paginate(8);
+            $games = $games->paginate(6);
 
             $categoryGame = Game::find($id);
 
@@ -31,6 +31,17 @@ class CategoryController extends FrontendController
             ];
 
             return view('games.index', $viewData);
+        }
+
+        if($request->search)
+        {
+            $games = Game::where([
+                'active'    => 1
+            ])->where('name','like','%'.$request->search.'%');
+
+            $games = $games->paginate(6);
+
+            return view('games.index',compact('games'));
         }
         return redirect('/');
     }

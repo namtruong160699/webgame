@@ -3,26 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game;
 
-class HomeController extends Controller
+class HomeController extends FrontendController
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
-        $this->middleware('auth');
+        parent::__construct();
     }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
+    
     public function index()
     {
-        return view('home');
+        $games = Game::where('active', 1)->orderByDesc('id')->paginate(60);
+        return view('dashboards.index', compact('games'));
+    }
+
+    public function renderGame(Request $request)
+    {
+        if($request->ajax())
+        {
+            $listId = $request->id;
+            $gameView = Game::whereIn('id', $listId)->get();
+            $html  = view('components.game_played', compact('gameView'))->render();
+            return response()->json(['data' => $html]);
+        }
     }
 }
