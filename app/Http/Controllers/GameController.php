@@ -22,8 +22,15 @@ class GameController extends FrontendController
         $url = preg_split('/(-)/i',$url);
         if ($id = array_pop($url))
         {
-            $game = Game::find($id);
-            $games = Game::paginate(6);
+            $game = Game::with('keywords')->findOrFail($id);
+            $keywords = [];
+            foreach($game->keywords as $keyword)
+            {
+                $keywords[] = [
+                    'id'    => $keyword->id,
+                    'name'  => $keyword->name
+                ];
+            }
             $ratings = Rating::with('user:id,name')->where('ra_game_id',$id)->orderBy('id','DESC')->paginate(4);
 
             // Gom nhóm lại tổng xem
@@ -57,10 +64,11 @@ class GameController extends FrontendController
             ProcessViewService::view('games','played','game', $id);
 
             $viewData = [
-                'games'         => $games,
                 'game'          => $game,
                 'ratings'       => $ratings,
-                'arrayRatings'  => $arrayRatings
+                'arrayRatings'  => $arrayRatings,
+                'keywords'      => $keywords,
+                'gameSuggests'  => $this->getGameSuggests($game->category_id)
             ];
 
             return view('games.gamePlay', $viewData);
@@ -123,5 +131,18 @@ class GameController extends FrontendController
             'is_fav'=>$is_fav,
         );
         return response()->json($response, 200);
+    }
+
+    private function getGameSuggests($categoryId)
+    {
+        $games = Game::where([
+            'category_id'   => $categoryId
+        ])
+            ->orderByDesc('id')
+            ->select('id','name','file_game','avatar','played')
+            ->limit(6)
+            ->get();
+
+        return $games;
     }
 }

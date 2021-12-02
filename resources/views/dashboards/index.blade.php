@@ -158,7 +158,7 @@
                             <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
                                 <div class="event-list-item colmd4">
                                     <div class="event-list-pic">
-                                        <img class="img-custom" src="{{asset(pare_url_file($game->avatar))}}" alt="image">
+                                        <img class="img-custom" data-original="{{asset(pare_url_file($game->avatar))}}" alt="image">
                                     </div>
                                     <div class="event-text clearfix ">
                                         <p class="title-custom">{{$game->name}}</p>
@@ -171,13 +171,15 @@
                 </div>
             </div>
             <div class="blog-pagination text-center">
-                <ul class="pagination">
-                    <li><a href="#"><span class="ti-angle-double-left"></span></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><span class="ti-angle-double-right"></span></a></li>
-                </ul>
+                @if($games->lastPage() > 1)
+                    <ul class="pagination">
+                        <li class="{{ ($games->currentPage() == 1) ? ' disabled' : '' }}"><a href="{{ $games->url(1) }}"><span class="ti-angle-double-left"></span></a></li>
+                        @for($i = 1; $i <= $games->lastPage(); $i++)
+                            <li class="{{ ($games->currentPage() == $i) ? ' active' : '' }}"><a href="{{ $games->url($i) }}">{{ $i }}</a></li>
+                        @endfor
+                        <li class="{{ ($games->currentPage() == $games->lastPage()) ? ' disabled' : '' }}"><a href="{{ $games->url($games->currentPage()+1) }}"><span class="ti-angle-double-right"></span></a></li>
+                    </ul>
+                @endif
             </div>
         </div>
     </div>

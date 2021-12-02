@@ -34,6 +34,17 @@
                     @endforeach
                 </div>
             </div>
+            <div class="blog-pagination text-center">
+                @if($games->lastPage() > 1)
+                    <ul class="pagination">
+                        <li class="{{ ($games->currentPage() == 1) ? ' disabled' : '' }}"><a href="{{ $games->url(1) }}"><span class="ti-angle-double-left"></span></a></li>
+                        @for($i = 1; $i <= $games->lastPage(); $i++)
+                            <li class="{{ ($games->currentPage() == $i) ? ' active' : '' }}"><a href="{{ $games->url($i) }}">{{ $i }}</a></li>
+                        @endfor
+                        <li class="{{ ($games->currentPage() == $games->lastPage()) ? ' disabled' : '' }}"><a href="{{ $games->url($games->currentPage()+1) }}"><span class="ti-angle-double-right"></span></a></li>
+                    </ul>
+                @endif
+            </div>
         </div>
     </div>
 </section>

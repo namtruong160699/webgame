@@ -80,7 +80,7 @@
 					<nav class="navbar">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
-							<a class="navbar-brand" href="{{route('client.dashboard')}}"><img src="{{asset('Client/assets/img/icon-xgame.jpg')}}" alt="image"></a>
+							<a style="padding-top: 25px" class="navbar-brand" href="{{route('client.dashboard')}}"><img style="width: 110px" src="{{asset('Client/assets/img/logo_xgame.png')}}" alt="image"></a>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -90,7 +90,7 @@
 									<ul class="menu-dropdown">
                                         @if(isset($categories))
                                             @foreach($categories as $category)
-                                                <li><a href="{{route('get.list.product',[$category->slug,$category->id])}}">{{$category->name}}</a></li>
+                                                <li><a href="{{route('get.list.game.client',[$category->slug,$category->id])}}">{{$category->name}}</a></li>
                                             @endforeach
                                         @endif
 									</ul>
@@ -112,8 +112,8 @@
 							</div>
 						@endif
 						<div id="sb-search" class="sb-search " >
-							    <form action="#" method="post">
-								   <input class="sb-search-input " onkeyup="buttonUp();" placeholder="Tìm kiếm..." type="search" value="" name="search" id="search">
+							    <form action="{{route('get.game.list')}}">
+								   <input class="sb-search-input " onkeyup="buttonUp();" placeholder="Tìm kiếm..." type="search" value="{{\Request::get('search')}}" name="search" id="search">
 								 <input class="sb-search-submit" type="submit"  value="">
 								 <span class="sb-icon-search"><i class="ti-search"></i></span>
 							    </form>
@@ -314,6 +314,7 @@
     <script type="text/javascript" src="{{asset('Client/rev-slider/js/revolution.extension.video.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('Client/assets/js/function.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js" integrity="sha512-jNDtFf7qgU0eH/+Z42FG4fw3w7DM/9zbgNPe3wfJlCylVDTT3IgKW5r92Vy9IHa6U50vyMz5gRByIu4YIXFtaQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript">
         if (typeof TYPE_MESSAGE != "undefined")
         {
@@ -335,6 +336,11 @@
             return false;
         })
     </script>
+	<script>
+		$(document).ready(function() {
+			$('.img-custom').lazyload();
+		});
+	</script>
     @yield('script')
 </body> 
 </html>

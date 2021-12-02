@@ -146,7 +146,7 @@
                                     <div class="rating-item" style="width: 15%;position: relative">
                                         <span class="mr5 ti-star"
                                             style="font-size: 100px;color: #fd9727;display: block;margin: 0 auto;text-align: center"></span><b
-                                            style="position: absolute;top: 50%;left: 50%;transform: translateX(-50%) translateY(-50%);color: white;font-size: 20px">{{$ageDetail}}</b>
+                                            style="position: absolute;top: 57%;left: 50%;transform: translateX(-50%) translateY(-50%);color: #F78802;font-size: 20px">{{$ageDetail}}</b>
                                     </div>
                                     <div class="list-rating" style="width: 65%;padding: 20px">
                                         @foreach($arrayRatings as $key => $arrayRating)
@@ -201,7 +201,7 @@
                                 </div>
                                 <div class="client-name-reply pb70">
                                     <div class="row">
-                                        @foreach($games as $game)
+                                        @foreach($gameSuggests as $game)
                                             <div class="col-sm-2">
                                                 <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
                                                     <div class="event-list-item colmd4">
@@ -228,17 +228,15 @@
                             <!-- /side-bar-search -->
                             <div class="category mb40">
                                 <div class="side-bar-title mb40">
-                                    <h2 class="widgettitle">Categories</h2>
+                                    <h2 class="widgettitle">Tags</h2>
                                 </div>
                                 <!-- /title -->
                                 <div class="category-item box">
-                                    <ul class="category-item-list">
-                                        <li><a href="#">Donation</a><span class="badge pull-right">25</span></li>
-                                        <li><a href="#">Education</a><span class="badge pull-right">25</span></li>
-                                        <li><a href="#">Help </a><span class="badge pull-right">75</span></li>
-                                        <li><a href="#">Donation</a><span class="badge pull-right">14</span></li>
-                                        <li><a href="#">Education</a><span class="badge pull-right">26</span></li>
-                                    </ul>
+                                    @if(isset($keywords))
+                                        @foreach($keywords as $keyword)
+                                            <a href="#" style="border: 1px solid #E91E63; display: inline-block; font-size: 13px; padding: 0 5px;border-radius: 5px; margin-right: 10px; color: #E91E63">{{$keyword['name']}}</a>
+                                        @endforeach
+                                    @endif
                                 </div>
                             </div>
                             <!-- /category-item -->
