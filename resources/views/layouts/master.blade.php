@@ -166,17 +166,14 @@
 										<a  href="home-1.html"><img src="{{asset('Client/assets/img/icon-xgame.jpg')}}" alt="image"></a>
 									</div>
 									<div class="footer-text">
-										<p>Lorem ipsum dolor sit ametlyeolo consectetur adipisicing elit sed dong eiusmod tempor incididunt ut labore et incididunt.  </p>
-									</div>
-									<div class="footer-text">
-										<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco. </p>
+										<p>Mùa hè năm 2018, những con người mang trong mình lòng đam mê và sự nhiệt huyết về công nghệ đã đặt những viên gạch đầu tiên thành lập nên ngôi nhà XGame.</p>
 									</div>
 								</div>
 								<!-- /col-sm-3 -->
 
 								<div class="col-sm-3">
 									<div class="footer-head-title text-uppercase pb35">
-										<h2 class="widgettitle">RECENT TWEET</h2>
+										<h2 class="widgettitle">GAME</h2>
 									</div>
 									<!-- /title -->
 									<div class="recent-tweet-list">
@@ -208,21 +205,21 @@
 
 								<div class="col-sm-3">
 									<div class="footer-head-title text-uppercase pb35">
-										<h2 class="widgettitle">GET IN TOUCH</h2>
+										<h2 class="widgettitle">CẬP NHẬT</h2>
 									</div>
 									<!-- /title -->
 									<div class="touch-content">
 										<div class="tweet-text">
 											<span class="name-tweet">Address: </span>
-											<span class="tweet-content">315 Chat mohon Bazar New Yor, NY 4536 </span> 
+											<span class="tweet-content">Lô B12/D6 - Khu đô thị mới Cầu Giấy, Phường Dịch Vọng, Quận Cầu Giấy, Thành phố Hà Nội </span> 
 										</div>
 										<div class="tweet-text mt5">
 											<span class="name-tweet">E-mail: </span>
-											<span class="tweet-content">support@yourdomain.com </span> 
+											<span class="tweet-content">tuyendung@xgamevn.com </span> 
 										</div>
 										<div class="tweet-text mt5">
 											<span class="name-tweet">Phone: </span>
-											<span class="tweet-content">560 265 1523</span> 
+											<span class="tweet-content">0975534626</span> 
 										</div>
 										<div class="newsletter-form">
 											<form action="#" method="get" class="nwsltter">
@@ -240,7 +237,7 @@
 
 								<div class="col-sm-3">
 									<div class="footer-head-title text-uppercase pb35">
-										<h2 class="widgettitle">GALLERY</h2>
+										<h2 class="widgettitle">CÔNG TY</h2>
 									</div>
 									<div class="footer-gallery pb35">
 										<ul class="footer-gallery">

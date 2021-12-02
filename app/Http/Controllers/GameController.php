@@ -75,29 +75,6 @@ class GameController extends FrontendController
         }
     }
 
-    public function insertLike(Request $request, $id)
-    {
-        if($request->ajax())
-        {
-            // Kiểm tra tồn tại game
-            $game = Game::find($id);
-            if(!$game) {
-                return response(['message' => 'Game không tồn tại']);
-            }
-            $message = 'Thêm yêu thích thành công!';
-            try {
-                \DB::table('user_favourite')
-                    ->insert([
-                        'game_id' => $id,
-                        'user_id' => get_data_user('web'),
-                    ]);
-            } catch (\Exception $e) {
-                $message = 'Game này đã được yêu thích';
-            }
-            return response(['message' => $message]);
-        }
-    }
-
     public function gameFavGame(Request $request)
     {
         $game_id = $request['game_id'];

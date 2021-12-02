@@ -91,7 +91,7 @@
                         <div class="blog-details-section-left-side  pb80">
                             <div class="blog-details-main-pic">
                                 <div class="content">
-                                    <div class="item-container">
+                                    <div class="item-container" id="content_game" data-id="{{$game->id}}">
                                         <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
                                             style="width: 100%;height: 100%;"></iframe>
                                     </div>
@@ -401,7 +401,7 @@
             });
 
             // Lưu id game vào storage
-            let idGame = $("#games_played").attr('data-id');
+            let idGame = $("#content_game").attr('data-id');
 
             // Lấy giá trị storage
             let games = localStorage.getItem('games');

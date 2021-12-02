@@ -181,6 +181,7 @@
                     </ul>
                 @endif
             </div>
+            <div style="margin-top: 20px" class="event-list-content" id="games_played"></div>
         </div>
     </div>
 </section>
