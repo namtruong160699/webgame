@@ -48,7 +48,7 @@
 	<!-- Start of Header 
 	============================================= -->
 	<header>
-		<div class="header-top-bg">
+		<!-- <div class="header-top-bg">
 			<div class="container">
 				<div class="row">
 					<div class="header-top">
@@ -58,7 +58,6 @@
 								<li><img src="{{asset('Client/assets/img/inbox.png')}}" alt="image">info@fundme.com</li>
 							</ul>
 						</div>
-						<!-- /head-top-info -->
 						<div class="header-social pull-right">
 							<div class="social">
 								<ul class="social-list">
@@ -69,11 +68,10 @@
 								</ul>
 							</div>
 						</div>
-						<!-- /header-social -->
-					</div><!-- /header-top -->
-				</div><!-- /row -->
-			</div><!-- /container -->
-		</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
 		<div class="menu-bar">
 			<div class="container">
 				<div class="row">
