@@ -21,6 +21,22 @@ class CategoryController extends FrontendController
         if($id = array_pop($url)) {
             $games = Game::where('category_id', $id);
 
+            if ($request->orderby)
+            {
+                $orderby = $request->orderby;
+                switch ($orderby)
+                {
+                    case 'desc':
+                        $games->orderBy('id','DESC');
+                        break;
+                    case 'asc':
+                        $games->orderBy('id','ASC');
+                        break;
+                    default:
+                        $games->orderBy('id','DESC');
+                }
+            }
+
             $games = $games->paginate(6);
 
             $categoryGame = Game::find($id);

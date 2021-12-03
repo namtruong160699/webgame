@@ -9,6 +9,10 @@
             padding-right: unset;
             padding-left: unset;
         }
+        .col-sm-12 {
+            padding-right: 10px;
+            padding-left: 10px;
+        }
         .box {
             background-color: #fff;
         }
@@ -125,7 +129,7 @@
         <div class="row section-content">
             <div class="event-list-content">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-sm-12">
                         <div class="reply-comment box">
                             <div class="top-categories">
                                 <div class="row single-line">
