@@ -336,6 +336,25 @@
 			$('.img-custom').lazyload();
 		});
 	</script>
+	<script>
+		$(document).ready(function() {
+			$('.video2').each(function(i, obj) {
+				$(this).on("mouseover", hoverVideo);
+				$(this).on("mouseout", hideVideo);
+			});
+		});
+
+		function hoverVideo() {
+			$(this).find(".overlayImage").hide();
+			$(this).find(".thevideo")[0].play();
+		}
+
+		function hideVideo(video) {
+			$(this).find(".thevideo")[0].currentTime = 0;
+			$(this).find(".thevideo")[0].pause();
+			$(this).find(".overlayImage").show();
+		}
+	</script>
     @yield('script')
 </body> 
 </html>

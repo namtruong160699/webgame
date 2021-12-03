@@ -101,9 +101,13 @@
             white-space: nowrap;
         }
         .top-categories ul li a::after {
+            color: #fff;
+            content: "$";
             font-family: 'fontello';
             font-size: 15px;
             font-weight: normal;
+            top: 10px;
+            left: 10px;
             line-height: 15px;
             position: absolute;
         }
@@ -161,10 +165,13 @@
                         <div class="col-sm-2">
                             <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
                                 <div class="event-list-item colmd4">
-                                    <div class="event-list-pic">
-                                        <img class="img-custom" data-original="{{asset(pare_url_file($game->avatar))}}" alt="image">
+                                    <div class="event-list-pic video2">
+                                        <img class="img-custom overlayImage" data-original="{{asset(pare_url_file($game->avatar))}}" alt="image">
+                                        <video class="thevideo" loop muted poster="{{asset(pare_url_file($game->avatar))}}" onmouseout="this.pause()">
+                                            <source src="{{asset('uploads/video/'.$game->video)}}" type="video/mp4">
+                                        </video>
                                     </div>
-                                    <div class="event-text clearfix ">
+                                    <div class="event-text clearfix" style="margin-top: -7px">
                                         <p class="title-custom">{{$game->name}}</p>
                                         <p class="plays-count">{{$game->played}} chơi</p>
                                     </div>

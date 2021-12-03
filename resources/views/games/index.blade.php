@@ -192,21 +192,21 @@
                                     <div class="column">
                                         <div class="gray-select timeframe-select open">
                                             <div class="select-header">
-                                                Tất cả các khung thời gian
+                                                Tất cả các thể loại
                                             </div>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="gray-select timeframe-select open">
                                             <div class="select-header">
-                                                Tất cả các khung thời gian
+                                                Tất cả các nhãn
                                             </div>
                                         </div>
                                     </div>
                                     <div class="column">
                                         <div class="gray-select timeframe-select open">
                                             <div class="select-header">
-                                                Tất cả các khung thời gian
+                                                Tất cả các Công nghệ
                                             </div>
                                         </div>
                                     </div>
@@ -239,10 +239,13 @@
                         <div class="col-sm-2">
                             <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
                                 <div class="event-list-item colmd4">
-                                    <div class="event-list-pic">
-                                        <img class="img-custom" src="{{asset(pare_url_file($game->avatar))}}" alt="image">
+                                    <div class="event-list-pic video2">
+                                        <img class="img-custom overlayImage" data-original="{{asset(pare_url_file($game->avatar))}}" alt="image">
+                                        <video class="thevideo" loop muted poster="{{asset(pare_url_file($game->avatar))}}" onmouseout="this.pause()">
+                                            <source src="{{asset('uploads/video/'.$game->video)}}" type="video/mp4">
+                                        </video>
                                     </div>
-                                    <div class="event-text clearfix ">
+                                    <div class="event-text clearfix" style="margin-top: -7px">
                                         <p class="title-custom">{{$game->name}}</p>
                                         <p class="plays-count">{{$game->played}} chơi</p>
                                     </div>

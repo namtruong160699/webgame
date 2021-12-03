@@ -6,10 +6,13 @@
         <div class="col-sm-2">
             <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
                 <div class="event-list-item colmd4">
-                    <div class="event-list-pic">
-                        <img class="img-custom" src="{{asset(pare_url_file($game->avatar))}}" alt="image">
+                    <div class="event-list-pic video2">
+                        <img class="img-custom overlayImage" src="{{asset(pare_url_file($game->avatar))}}" alt="image">
+                        <video class="thevideo" loop muted poster="{{asset(pare_url_file($game->avatar))}}" onmouseout="this.pause()">
+                            <source src="{{asset('uploads/video/'.$game->video)}}" type="video/mp4">
+                        </video>
                     </div>
-                    <div class="event-text clearfix ">
+                    <div class="event-text clearfix" style="margin-top: -7px">
                         <p class="title-custom">{{$game->name}}</p>
                         <p class="plays-count">{{$game->played}} chơi</p>
                     </div>
@@ -18,3 +21,22 @@
         </div>
     @endforeach
 </div>
+<script>
+    $(document).ready(function() {
+        $('.video2').each(function(i, obj) {
+            $(this).on("mouseover", hoverVideo);
+            $(this).on("mouseout", hideVideo);
+        });
+    });
+
+    function hoverVideo() {
+        $(this).find(".overlayImage").hide();
+        $(this).find(".thevideo")[0].play();
+    }
+
+    function hideVideo(video) {
+        $(this).find(".thevideo")[0].currentTime = 0;
+        $(this).find(".thevideo")[0].pause();
+        $(this).find(".overlayImage").show();
+    }
+</script>
