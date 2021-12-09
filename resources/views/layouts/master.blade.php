@@ -39,6 +39,8 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('Client/assets/css/style.css')}}">
 	<!-- responsive.css -->
 	<link rel="stylesheet" type="text/css" href="{{asset('Client/assets/css/responsive.css')}}">
+	<!-- css customs -->
+	<link rel="stylesheet" type="text/css" href="{{asset('Client/customs/css/style.css')}}">
     @yield('style')
 </head>
 <!-- /end of head -->
@@ -84,7 +86,7 @@
 						<!-- Collect the nav links, forms, and other content for toggling -->
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav navbar-right">
-								<li><a href="cause.html">Thể loại</a>
+								<li><a href="#">Thể loại</a>
 									<ul class="menu-dropdown">
                                         @if(isset($categories))
                                             @foreach($categories as $category)
@@ -96,10 +98,31 @@
 							</ul>
 						</div><!-- /.navbar-collapse -->
 						@if(Auth::check())
-							<div id="user_logged_in">
-								<a class="fake-button js-top-menu user-toggle" href="{{route('get.logout.user')}}">
-									<img class="avatar" src="https://img-hws.y8.com/assets/y8/default_avatar-d594c7c6e605201898e1dadf838c38d27e4ca38361edcff4022d4fab84368136.png" alt="">
+							<div id="user_logged_in" class="dropdown">
+								<a onclick="myFunction()" class="fake-button js-top-menu user-toggle">
+									<img class="avatar dropbtn" src="https://img-hws.y8.com/assets/y8/default_avatar-d594c7c6e605201898e1dadf838c38d27e4ca38361edcff4022d4fab84368136.png" alt="">
 								</a>
+								<div id="myDropdown" class="dropdown-content">
+									<div class="sub-menu-header">
+										<span class="username username_box">{{get_data_user('web','name')}}</span>
+										<span class="points">các điểm</span>
+									</div>
+									<ul>
+										<li>
+											<a href="{{route('get.user.info')}}">Hồ sơ của tôi</a>
+										</li>
+										<li>
+											<a href="#">Chỉnh sửa hồ sơ</a>
+										</li>
+									</ul>
+									<div class="sub-menu-footer">
+										<ul>
+											<li>
+												<a href="{{route('get.logout.user')}}">Đăng xuất</a>
+											</li>
+										</ul>
+									</div>
+								</div>
 							</div>
 						@else
 							<div class="home-donate donate-btn-1 text-uppercase">
@@ -209,7 +232,7 @@
 									<div class="touch-content">
 										<div class="tweet-text">
 											<span class="name-tweet">Address: </span>
-											<span class="tweet-content">Lô B12/D6 - Khu đô thị mới Cầu Giấy, Phường Dịch Vọng, Quận Cầu Giấy, Thành phố Hà Nội </span> 
+											<span class="tweet-content">18 Phạm Hùng, Mỹ Đình 2, Nam Từ Liêm, Hà Nội </span> 
 										</div>
 										<div class="tweet-text mt5">
 											<span class="name-tweet">E-mail: </span>
@@ -235,17 +258,10 @@
 
 								<div class="col-sm-3">
 									<div class="footer-head-title text-uppercase pb35">
-										<h2 class="widgettitle">CÔNG TY</h2>
+										<!-- <h2 class="widgettitle">CÔNG TY</h2> -->
 									</div>
 									<div class="footer-gallery pb35">
-										<ul class="footer-gallery">
-											<li><a href="#"><img src="{{asset('Client/assets/img/g-1.png')}}" alt="image"></a></li>
-											<li><a href="#"><img src="{{asset('Client/assets/img/g-2.png')}}" alt="image"></a></li>
-											<li><a href="#"><img src="{{asset('Client/assets/img/g-3.png')}}" alt="image"></a></li>
-											<li><a href="#"><img src="{{asset('Client/assets/img/g-4.png')}}" alt="image"></a></li>
-											<li><a href="#"><img src="{{asset('Client/assets/img/g-5.png')}}" alt="image"></a></li>
-											<li><a href="#"><img src="{{asset('Client/assets/img/g-6.png')}}" alt="image"></a></li>
-										</ul>
+										<a href="#"><img src="https://img-hws.y8.com/assets/y8/footer_image0-3fe943a45465748e2f015e7cd8c7bf18eb8478d8694f4c9c9434605eaf1d1dcb.webp" alt="image"></a>
 									</div>
 								</div>
 								<!-- /col-sm-3 -->
@@ -355,6 +371,24 @@
 			$(this).find(".overlayImage").show();
 		}
 	</script>
+	<script>
+		function myFunction() {
+			document.getElementById("myDropdown").classList.toggle("show");
+		}
+
+		window.onclick = function(event) {
+			if (!event.target.matches('.dropbtn')) {
+				var dropdowns = document.getElementsByClassName("dropdown-content");
+				var i;
+				for (i = 0; i < dropdowns.length; i++) {
+					var openDropdown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+						openDropdown.classList.remove('show');
+					}
+				}
+			}
+		}
+</script>
     @yield('script')
 </body> 
 </html>

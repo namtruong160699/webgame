@@ -11,75 +11,6 @@
                 width: 1590px !important;
             }
         }
-        .content {
-            display: -webkit-box;
-            display: -moz-flexbox;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-flex-direction: column;
-            -moz-flex-direction: column;
-            -ms-flex-direction: column;
-            -o-flex-direction: column;
-            flex-direction: column;
-            -webkit-box-flex: 1;
-            -ms-flex-positive: 1;
-            flex-grow: 1;
-            border-top-left-radius: 6px;
-            border-top-right-radius: 6px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-            -webkit-border-top-left-radius: 6px;
-            -webkit-border-top-right-radius: 6px;
-            -webkit-border-bottom-right-radius: 0;
-            -webkit-border-bottom-left-radius: 0;
-            -moz-border-radius-topleft: 6px;
-            -moz-border-radius-topright: 6px;
-            -moz-border-radius-bottomright: 0;
-            -moz-border-radius-bottomleft: 0;
-            background: #fff;
-            overflow: hidden;
-        }
-        .item-container {
-            position: relative;
-            text-align: center;
-            z-index: 3;
-            height: 700px;
-        }
-        iframe {
-            display: -webkit-box;
-            display: -moz-flexbox;
-            display: -ms-flexbox;
-            display: -webkit-flex;
-            display: flex;
-            -webkit-flex-direction: column;
-            -moz-flex-direction: column;
-            -ms-flex-direction: column;
-            -o-flex-direction: column;
-            flex-direction: column;
-            /* -webkit-box-flex: 1; */
-            -ms-flex-positive: 1;
-            flex-grow: 1;
-            margin: 0 auto;
-            position: relative;
-            z-index: 3;
-            border: unset;
-        }
-        .text-danger {
-            color: #F78802 !important;
-            cursor: pointer;
-        }
-        .text-dark {
-            color: #212529 !important;
-            cursor: pointer;
-        }
-        .col-sm-2 {
-            padding-right: unset;
-            padding-left: unset;
-        }
-        .box {
-            background-color: #fff;
-        }
     </style>
 @endsection
 <section id="blog-details" class="blog-details-section pt60  pb80" style="background-color: #f1f1f1">
@@ -92,8 +23,22 @@
                             <div class="blog-details-main-pic">
                                 <div class="content">
                                     <div class="item-container" id="content_game" data-id="{{$game->id}}">
-                                        <iframe src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
+                                        <iframe class="iframe-close" name="iframe" id="iframe" src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
                                             style="width: 100%;height: 100%;"></iframe>
+                                        <div class="game-control-container">
+                                            <div class="left-control-container"></div>
+                                            <div class="right-control-container">
+                                                <h5 class="game-control-title">Điều chỉnh hoặc tối đa</h5>
+                                                <div class="screen-size-actions">
+                                                    <a title="Exit Full Screen" onclick='closeFullscreen()' class="maximize-button">
+                                                        <img src="https://img-hws.y8.com/assets/svg/resize-v2-9649eb0b0be2316730dbea99ce24249131ab8ccb2a1c0b994e2695508cc76da5.svg" alt="Maximize">
+                                                    </a>
+                                                    <a title="Full Screen" onclick='openFullscreen()' class="maximize-button">
+                                                        <img src="https://img-hws.y8.com/assets/svg/maximize-v2-9255bbce5dbf654a9fea165155f6d3fef74abe90e58d30dc18e69f88cd052a5e.svg" alt="Maximize">
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -227,16 +172,27 @@
                         <div class="side-bar-content ml15">
                             <!-- /side-bar-search -->
                             <div class="category mb40">
-                                <div class="side-bar-title mb40">
-                                    <h2 class="widgettitle">Tags</h2>
-                                </div>
                                 <!-- /title -->
-                                <div class="category-item box">
-                                    @if(isset($keywords))
-                                        @foreach($keywords as $keyword)
-                                            <a href="#" style="border: 1px solid #E91E63; display: inline-block; font-size: 13px; padding: 0 5px;border-radius: 5px; margin-right: 10px; color: #E91E63">{{$keyword['name']}}</a>
-                                        @endforeach
-                                    @endif
+                                <div class="post-item box">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="block-title uppercase">
+                                                Gắn thẻ
+                                                <a rel="nofollow" href="#">Tất cả các thẻ</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 tags-list">
+                                            @if(isset($keywords))
+                                                @foreach($keywords as $keyword)
+                                                    <a href="#">
+                                                        <p>{{$keyword['name']}}</p>
+                                                    </a>
+                                                @endforeach
+                                            @endif
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- /category-item -->
@@ -440,6 +396,47 @@
                     }
                 });
             });
+        });
+    </script>
+    <script>
+        var elem = document.getElementById("content_game");
+        function openFullscreen() {
+            $('#iframe').removeClass('iframe-close').addClass('iframe-open');
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+            }
+        }
+
+        function closeFullscreen() {
+            $('#iframe').removeClass('iframe-open').addClass('iframe-close');
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            } else if (document.webkitExitFullscreen) { /* Safari */
+                document.webkitExitFullscreen();
+            } else if (document.msExitFullscreen) { /* IE11 */
+                document.msExitFullscreen();
+            }
+        }
+    </script>
+    <script>
+        $( document ).ready(function() {
+            var cssLink = document.createElement("link");
+            cssLink.href = "{{asset('Client/customs/css/canvas.css')}}";
+            cssLink.rel = "stylesheet"; 
+            cssLink.type = "text/css"; 
+            frames['iframe'].document.head.appendChild(cssLink);
+        });
+
+        $( window ).on( "load", function() {
+            var cssLink = document.createElement("link");
+            cssLink.href = "{{asset('Client/customs/css/canvas.css')}}";
+            cssLink.rel = "stylesheet"; 
+            cssLink.type = "text/css"; 
+            frames['iframe'].document.head.appendChild(cssLink);
         });
     </script>
 @endsection
