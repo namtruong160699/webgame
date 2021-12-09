@@ -910,15 +910,16 @@ End of Partner section
 Start of footer [*12]
 -------------------------------------------------------------------------*/
 .footer-style {
-	background-image: url(../img/footer-bg.jpg);
+	/* background-image: url(../img/footer-bg.jpg); */
 	position: relative;
 }
 .footer-overlay {
-	background-color: rgba(1, 11, 35, 0.9);
+	/* background-color: rgba(1, 11, 35, 0.9); */
+	background-color: #fff;
 }
 .footer-contact-content-1 {
 	padding: 30px 0px 15px 0px;
-	border-bottom: 1px solid #3f495f;
+	/* border-bottom: 1px solid #3f495f; */
 }
 .footer-contact-info-list li {
 	width: 100%;
@@ -936,7 +937,8 @@ Start of footer [*12]
 }
 .footer-text p,
 .copy-right p {
-	color: #ededed;
+	/* color: #ededed; */
+	color: #666;
 }
 .copy-right p span {
 	font-style: italic;
@@ -947,14 +949,16 @@ Start of footer [*12]
 .footer-head-title h2{
 	font-size: 18px;
 	font-weight: 700;
-	color: #ffffff;
+	/* color: #ffffff; */
+	color: #666;
 }
 .tweet-icon span {
 	font-size: 18px;
 	line-height: 30px;
 }
 .name-tweet a {
-	color: #ffffff;
+	/* color: #ffffff; */
+	color: #666;
 }
 .tweet-link a {
 	color: #d7062c;
@@ -966,7 +970,8 @@ Start of footer [*12]
 	padding-top: 5px;
 }
 .tweet-text {
-	color: #fff;
+	/* color: #fff; */
+	color: #666;
 }
 .newsletter-form {
 	position: relative;
@@ -997,7 +1002,8 @@ Start of footer [*12]
 	transform: scale(1.05);
 }
 .footer-main-content {
-	border-bottom: 1px solid #3f495f;
+	/* border-bottom: 1px solid #3f495f; */
+	border-bottom: 1px solid #f7f7f7;
 }
 .copy-right {
 	padding: 25px 0px 10px 0px;

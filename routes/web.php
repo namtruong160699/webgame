@@ -47,3 +47,7 @@ Route::post('game-fav-game','GameController@gameFavGame')->name('ajax.game.fav.g
 Route::group(['prefix'=>'ajax'],function (){
     Route::post('/view-game','HomeController@renderGame')->name('get.games.played');
 });
+
+Route::group(['prefix'=>'user','middleware' => 'CheckLoginUser'],function (){
+    Route::get('/','UserController@index')->name('get.user.info');
+});
