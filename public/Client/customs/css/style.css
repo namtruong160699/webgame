@@ -513,3 +513,107 @@ iframe {
 	line-height: 36px;
 	padding: 0 15px;
 }
+h4 {
+	max-width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: inherit;
+}
+h4 {
+	color: #333;
+	font-size: 20px;
+	text-shadow: 1px 1px 0 rgb(255 255 255 / 20%);
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-style: normal;
+	color: #222;
+	text-rendering: optimizeLegibility;
+	line-height: 1.1;
+	margin-bottom: 14px;
+	margin-top: 14px;
+}
+.leave-comment-form {
+	padding-left: unset !important;
+	padding: 30px !important;
+}
+form {
+	margin: 0 0 19.41641px;
+}
+#new_identity table tr, #allow_form table tr, .edit_identity table tr, #change_info_form table tr, .iframe-table table tr {
+	background: #fff;
+	height: 37px;
+}
+#new_identity table tr td, #new_identity table tr th, #allow_form table tr td, #allow_form table tr th, .edit_identity table tr td, .edit_identity table tr th, #change_info_form table tr td, #change_info_form table tr th, .iframe-table table tr td, .iframe-table table tr th {
+	padding: 5px 0;
+}
+table tbody tr td {
+	color: #333;
+	padding: 9px 10px;
+	vertical-align: top;
+	border: none;
+}
+table thead tr th, table tfoot tr th, table tbody tr td, table tr td, table tfoot tr td {
+	display: table-cell;
+	font-size: 14px;
+	line-height: 18px;
+	text-align: left;
+}
+table tbody tr td, table tr td, table tr th {
+	vertical-align: middle;
+}
+#new_identity .label_description label, #allow_form .label_description label, .edit_identity .label_description label, #change_info_form .label_description label, .iframe-table .label_description label {
+	margin: 0;
+}
+#new_identity label, #allow_form label, .edit_identity label, #change_info_form label, .iframe-table label {
+	font-weight: bold;
+	font-size: 90%;
+	white-space: nowrap;
+	text-align: left;
+}
+label {
+	font-size: 12px;
+	font-weight: 400;
+	color: #666;
+}
+#change_info_form table tr td input {
+	margin: 5px 0;
+}
+input[type="text"] {
+	width: 100%;
+}
+.five, .row .five {
+	width: 31.25%;
+}
+.avatar_upload_place .avatar {
+	display: table;
+	text-align: center;
+	width: 160px;
+	height: 190px;
+}
+.avatar_upload_place .edit_mode {
+	margin-left: 20px;
+}
+.input-custom {
+	border-radius: 4px;
+	font-family: inherit;
+	box-shadow: none;
+	border: 0;
+	background: #f3f3f3;
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+	margin: 5px 0;
+	padding: 6px;
+	height: 32px;
+	width: 100%;
+	color: rgba(0,0,0,0.75);
+	display: block;
+	font-size: 14px;
+}
+.text-danger-custom {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 12px;
+    color: #dc3545;
+}

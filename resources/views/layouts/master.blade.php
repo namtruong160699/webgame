@@ -100,7 +100,7 @@
 						@if(Auth::check())
 							<div id="user_logged_in" class="dropdown">
 								<a onclick="myFunction()" class="fake-button js-top-menu user-toggle">
-									<img class="avatar dropbtn" src="https://img-hws.y8.com/assets/y8/default_avatar-d594c7c6e605201898e1dadf838c38d27e4ca38361edcff4022d4fab84368136.png" alt="">
+									<img class="avatar dropbtn user_picture" src="{{Auth::check() ? asset(pare_url_file_user(Auth::user()->avatar)) : ''}}" alt="">
 								</a>
 								<div id="myDropdown" class="dropdown-content">
 									<div class="sub-menu-header">
@@ -112,7 +112,10 @@
 											<a href="{{route('get.user.info')}}">Hồ sơ của tôi</a>
 										</li>
 										<li>
-											<a href="#">Chỉnh sửa hồ sơ</a>
+											<a href="{{route('user.update.info')}}">Chỉnh sửa hồ sơ</a>
+										</li>
+										<li>
+											<a href="{{route('user.update.password')}}">Chỉnh sửa mật khẩu</a>
 										</li>
 									</ul>
 									<div class="sub-menu-footer">
