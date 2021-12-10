@@ -50,4 +50,9 @@ Route::group(['prefix'=>'ajax'],function (){
 
 Route::group(['prefix'=>'user','middleware' => 'CheckLoginUser'],function (){
     Route::get('/','UserController@index')->name('get.user.info');
+    Route::get('/info','UserController@updateInfo')->name('user.update.info');
+    Route::post('/info','UserController@saveUpdateInfo');
+    Route::post('change-profile-picture', 'UserController@updatePicture')->name('get.update.user.picture');
+    Route::get('/password','UserController@changePassword')->name('user.update.password');
+    Route::post('/password','UserController@saveChangePassword');
 });

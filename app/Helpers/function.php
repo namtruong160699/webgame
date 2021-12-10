@@ -99,6 +99,23 @@ if (!function_exists('pare_url_file')) {
     }
 }
 
+if (!function_exists('pare_url_file_user')) {
+    function pare_url_file_user($image,$folder = '')
+    {
+        if (!$image)
+        {
+            return'/images/default_avatar.png';
+        }
+
+        $explode = explode('__', $image);
+
+        if (isset($explode[0])) {
+            $time = str_replace('_', '/', $explode[0]);
+            return '/uploads/'.$folder.'/' . date('Y/m/d', strtotime($time)) . '/' . $image;
+        }
+    }
+}
+
 if (!function_exists('get_data_user'))
 {
     function get_data_user($type,$field = 'id')
