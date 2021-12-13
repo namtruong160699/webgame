@@ -617,3 +617,20 @@ input[type="text"] {
     font-size: 12px;
     color: #dc3545;
 }
+.background-under-game {
+    -webkit-filter: blur(50px);
+    -moz-filter: blur(50px);
+    -o-filter: blur(50px);
+    -ms-filter: blur(50px);
+    filter: blur(50px);
+    background-size: cover;
+    bottom: 0;
+    height: 35%;
+    left: 0;
+    opacity: .3;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+}
