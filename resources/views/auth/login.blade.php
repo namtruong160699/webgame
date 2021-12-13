@@ -11,9 +11,9 @@
                 <div class="contact-form">
                     <div class="contact-form-title">
                         <div class="section-title text-center">
-                            <div class="section-title-text text-uppercase">
+                            <!-- <div class="section-title-text text-uppercase">
                                 <p>DON'T FORGET TO</p>
-                            </div>
+                            </div> -->
                             <div class="section-title-text">
                                 <h2>Đăng nhập</h2>
                             </div>
@@ -37,6 +37,9 @@
                                 </div>
                             </form>
                         </div>
+                        <p class="lost_password">
+                            <a href="{{route('get.reset.password')}}">Quên mật khẩu?</a>
+                        </p>
                     </div>
                 </div>
                 <!-- / contact-form-->
