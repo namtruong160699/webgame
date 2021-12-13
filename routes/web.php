@@ -30,8 +30,8 @@ Route::group(['namespace' => 'Auth'], function (){
 
     Route::get('dang-xuat','LoginController@getLogout')->name('get.logout.user');
 
-    Route::get('/lay-lai-mat-khau','ForgotPasswordController@getFormResetPassword')->name('get.reset.password');
-    Route::post('/lay-lai-mat-khau','ForgotPasswordController@sendCodeResetPassword');
+    Route::get('/reset-password','ForgotPasswordController@getFormResetPassword')->name('get.reset.password');
+    Route::post('/reset-password','ForgotPasswordController@sendCodeResetPassword');
 
     Route::get('/password/reset','ForgotPasswordController@resetPassword')->name('get.link.reset.password');
     Route::post('/password/reset','ForgotPasswordController@saveResetPassword');

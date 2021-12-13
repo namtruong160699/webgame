@@ -11,6 +11,9 @@
                 width: 1590px !important;
             }
         }
+        .reply-comment {
+            padding: 35px !important;
+        }
     </style>
 @endsection
 <section id="blog-details" class="blog-details-section pt60  pb80" style="background-color: #f1f1f1">
@@ -197,75 +200,9 @@
                             </div>
                             <!-- /category-item -->
 
-                            <div class="blog-recent-post mb40">
-                                <div class="side-bar-title mb40">
-                                    <h2 class="widgettitle">Recent Post</h2>
-                                </div>
-                                <!-- /title -->
-                                <div class="post-item box">
-                                    <div class="blog-recent-post-item mb20">
-                                        <div class="blog-recent-post-pic mr25 pull-left">
-                                            <img src="{{asset('Client/assets/img/recent-1.jpg')}}" alt="image">
-                                        </div>
-                                        <!-- /img -->
-                                        <div class="blog-recent-post-text">
-                                            <div class="blog-recent-post-head">
-                                                <a href="#">Dolore magna aliqua Ut enim ad minim</a>
-                                            </div>
-                                            <!-- /post-head -->
-                                            <div class="blog-recent-post-meta mt5">
-                                                <ul class="meta-list">
-                                                    <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2017</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /post-item -->
-
-                                    <div class="blog-recent-post-item mb20">
-                                        <div class="blog-recent-post-pic mr25 pull-left">
-                                            <img src="{{asset('Client/assets/img/recent-2.jpg')}}" alt="image">
-                                        </div>
-                                        <!-- /img -->
-                                        <div class="blog-recent-post-text">
-                                            <div class="blog-recent-post-head">
-                                                <a href="#">Dolore magna aliqua Ut enim ad minim</a>
-                                            </div>
-                                            <!-- /post-head -->
-                                            <div class="blog-recent-post-meta mt5">
-                                                <ul class="meta-list">
-                                                    <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2017</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /post-item -->
-
-                                    <div class="blog-recent-post-item">
-                                        <div class="blog-recent-post-pic mr25 pull-left">
-                                            <img src="{{asset('Client/assets/img/recent-3.jpg')}}" alt="image">
-                                        </div>
-                                        <!-- /img -->
-                                        <div class="blog-recent-post-text">
-                                            <div class="blog-recent-post-head">
-                                                <a href="#">Dolore magna aliqua Ut enim ad minim</a>
-                                            </div>
-                                            <!-- /post-head -->
-                                            <div class="blog-recent-post-meta mt5">
-                                                <ul class="meta-list">
-                                                    <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2017</a></li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- /recent-post-item -->
-                                </div>
-                            </div>
-                            <!-- /blog-recent-post -->
-
                             <div class="instagram-pic">
                                 <div class="side-bar-title mb40">
-                                    <h2 class="widgettitle">Instagram</h2>
+                                    <h2 class="widgettitle">Quảng cáo</h2>
                                 </div>
                                 <!-- /title -->
 
