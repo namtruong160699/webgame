@@ -25,6 +25,7 @@
                         <div class="blog-details-section-left-side  pb80">
                             <div class="blog-details-main-pic">
                                 <div class="content">
+                                    <div class="background-under-game" style="background: url({{asset(pare_url_file($game->avatar))}})"></div>
                                     <div class="item-container" id="content_game" data-id="{{$game->id}}">
                                         <iframe class="iframe-close" name="iframe" id="iframe" src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
                                             style="width: 100%;height: 100%;"></iframe>
@@ -359,7 +360,7 @@
             }
         }
     </script>
-    <script>
+    <!-- <script>
         $( document ).ready(function() {
             var cssLink = document.createElement("link");
             cssLink.href = "{{asset('Client/customs/css/canvas.css')}}";
@@ -375,5 +376,5 @@
             cssLink.type = "text/css"; 
             frames['iframe'].document.head.appendChild(cssLink);
         });
-    </script>
+    </script> -->
 @endsection
