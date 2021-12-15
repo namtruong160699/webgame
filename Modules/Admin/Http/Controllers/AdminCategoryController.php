@@ -2,7 +2,6 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use App\Models\Category;
@@ -10,10 +9,6 @@ use Illuminate\Support\Facades\Log;
 
 class AdminCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
     public function index()
     {
         $categories = Category::select('id','name','title_seo','active','show_homepage')->get();
@@ -23,65 +18,27 @@ class AdminCategoryController extends Controller
         return view('admin::categories.index', $viewData);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
     public function create()
     {
         return view('admin::categories.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
     public function store(Request $request)
     {
         $this->insertOrUpdate($request);
         return redirect()->route('admin.get.list.category');
     }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
-    {
-        return view('admin::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
     public function edit($id)
     {
-        return view('admin::edit');
+        $category = Category::find($id);
+        return view('admin::categories.update', compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
     public function update(Request $request, $id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
+        $this->insertOrUpdate($request, $id);
+        return redirect()->route('admin.get.list.category');
     }
 
     public function insertOrUpdate($request, $id='')
@@ -98,6 +55,7 @@ class AdminCategoryController extends Controller
             $category->icon = str_slug($request->icon);
             $category->title_seo = $request->title_seo ? $request->title_seo : $request->name;
             $category->description_seo = $request->description_seo;
+            $category->color = $request->color;
             $category->save();
         } catch (\Exception $exception) {
             $code = 0;
