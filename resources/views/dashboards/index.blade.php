@@ -14,28 +14,21 @@
                             <div class="top-categories">
                                 <div class="row single-line">
                                     <ul>
-                                        <li class="inactive fighting li-category">
-                                            <a class="fighting" href="">
-                                                <span class="name">Đối kháng</span>
+                                        @foreach($categories as $category)
+                                        <li class="inactive fighting li-category" style="background-color: {{$category->color}}">
+                                            <a class="fighting" href="{{route('get.list.game.client',[$category->slug,$category->id])}}">
+                                                <span class="name">{{$category->name}}</span>
                                                 <span class="number">2,125 game</span>
                                             </a>
                                         </li>
-                                        <li class="inactive girls li-category">
-                                            <a class="girls" title="Cho Con Gái" href="/categories/girls">
-                                                <span class="name">Cho Con Gái</span>
-                                                <span class="number">24,851 game</span>
-                                            </a>
-                                        </li>
-                                        <li class="inactive strategy li-category" style="display: inline-block;">
-                                            <a class="strategy" title="Chiến Thuật &amp; Nhập Vai" href="/categories/strategy">
-                                                <span class="name">Chiến Thuật &amp; Nhập Vai</span>
-                                                <span class="number">3,665 game</span>
-                                            </a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-md-12">
+                        <h3>Trò chơi ({{$countGame}})</h3>
                     </div>
                     @foreach($games as $game)
                         <div class="col-sm-2">

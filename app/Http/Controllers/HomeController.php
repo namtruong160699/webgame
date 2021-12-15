@@ -15,7 +15,8 @@ class HomeController extends FrontendController
     public function index()
     {
         $games = Game::where('active', 1)->orderByDesc('id')->paginate(60);
-        return view('dashboards.index', compact('games'));
+        $countGame = \DB::table('games')->count();
+        return view('dashboards.index', compact('games','countGame'));
     }
 
     public function renderGame(Request $request)

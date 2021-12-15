@@ -48,7 +48,14 @@
                                             </a>
                                         </td>
                                         <td>{{$category->title_seo}}</td>
-                                        <td class="actions"><i class="mdi mdi-dots-vertical"></i></td>
+                                        <td>
+                                            <a title="Chỉnh sửa" href="{{route('admin.get.edit.category', $category->id)}}">
+                                                <i style="font-size: 1.1875rem" class="mdi mdi-lead-pencil"></i>
+                                            </a>
+                                            <a title="Xoá" href="#">
+                                                <i style="font-size: 1.1875rem" class="mdi mdi-delete"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                     @endforeach
                                 @endif

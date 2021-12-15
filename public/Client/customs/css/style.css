@@ -339,6 +339,9 @@ iframe {
 	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+.search-container {
+	padding: 20px;
+}
 .search-container .advanced-serach-options {
 	margin-top: 25px;
 }
