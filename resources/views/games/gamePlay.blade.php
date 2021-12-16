@@ -191,6 +191,7 @@
                                             @if(isset($keywords))
                                                 @foreach($keywords as $keyword)
                                                     <a href="#">
+                                                        <i class="tag-36x28 tag-36x28-games tag-36x28-14"></i>
                                                         <p>{{$keyword['name']}}</p>
                                                     </a>
                                                 @endforeach

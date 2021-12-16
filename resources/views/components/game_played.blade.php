@@ -13,8 +13,19 @@
                         </video>
                     </div>
                     <div class="event-text clearfix" style="margin-top: -7px">
-                        <p class="title-custom">{{$game->name}}</p>
-                        <p class="plays-count">{{$game->played}} chơi</p>
+                        <p class="title-custom p-custom">{{$game->name}}</p>
+                        <div class="technology">
+                            @if($game->operating_system == 1)
+                            <p class="unity_webgl p-custom">
+                                WebGL
+                            </p>
+                            @else
+                            <p class="html5 p-custom">
+                                HTML5
+                            </p>
+                            @endif
+                        </div>
+                        <p class="plays-count p-custom">{{$game->played}} chơi</p>
                     </div>
                 </div>
             </a>

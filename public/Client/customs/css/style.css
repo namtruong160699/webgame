@@ -221,18 +221,6 @@ iframe {
 .top-categories .row.single-line ul li {
 	margin: 0 5px 100px;
 }
-.top-categories li.fighting {
-	background-color: #cb7df6;
-	box-shadow: 0 8px 18px -8px rgb(203 125 246 / 70%);
-}
-.top-categories li.girls {
-	background-color: #ff5b88;
-	box-shadow: 0 8px 18px -8px rgb(255 91 136 / 70%);
-}
-.top-categories li.strategy {
-	background-color: #40c914;
-	box-shadow: 0 8px 18px -8px rgb(64 201 20 / 70%);
-}
 .top-categories ul li {
 	border-radius: 12px;
 	-moz-border-radius: 12px;
@@ -636,4 +624,49 @@ input[type="text"] {
     top: 0;
     width: 100%;
     z-index: 2;
+}
+.technology {
+    font-size: 11px;
+    font-weight: bold;
+    margin-top: 2px;
+}
+.technology .unity_webgl {
+    background-image: url('https://img-hws.y8.com/assets/technology_icons/webgl-5bbd3e4c109c2c654e3950913ff42f8a8aecd8b0b01200d7267d47d39a17b5d7.svg');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 29px 12px;
+    color: #454545;
+    padding-left: 33px;
+}
+.technology .html5 {
+    background-image: url('https://img-hws.y8.com/assets/technology_icons/html5-dc0b6633223f2e9d597dcb0ad23ba14c9bd288b9e9b455557eb8b9c80df008e5.svg');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    color: #ca3d19;
+    padding-left: 16px;
+}
+.p-custom {
+	margin: unset !important;
+}
+.tags-list a i {
+    display: inline-block;
+    margin: 4px;
+    vertical-align: middle;
+}
+i.tag-36x28-14 {
+    background-position: -432px -56px;
+    height: 28px;
+    width: 36px;
+}
+.tag-36x28-games {
+    background-position: -180px -588px;
+}
+.tag-36x28 {
+    background-image: url('https://img-hws.y8.com/assets/tags/spritesheet-tags-36x28-43c288fa5223317ab391c931a49c6a6a285d43565a097da776999d706a843b2e.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 28px;
+    width: 36px;
 }
