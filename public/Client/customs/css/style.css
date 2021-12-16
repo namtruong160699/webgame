@@ -670,3 +670,18 @@ i.tag-36x28-14 {
     height: 28px;
     width: 36px;
 }
+.menu-games ul {
+    margin-bottom: 0;
+    padding: 0;
+}
+.menu-games ul li {
+    display: block;
+    margin-bottom: 7px;
+}
+.menu-games ul li a {
+    color: #666;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-decoration: none;
+}

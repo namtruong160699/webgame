@@ -20,7 +20,7 @@ class HomeController extends FrontendController
             ->join('games', 'categories.id', '=', 'games.category_id')
             ->select('categories.id as id', 'categories.name as name', 'categories.slug as slug', 'categories.color as color', \DB::raw("count(*) as count"))
             ->groupBy('categories.id')
-            ->get();
+            ->paginate(7);
         return view('dashboards.index', compact('games','countGame','count_games_by_category'));
     }
 

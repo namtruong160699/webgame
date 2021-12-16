@@ -1,5 +1,5 @@
 @extends('layouts.master',[
-    'page_title' => 'Dashboard',
+    'page_title' => 'XGame - Danh mục trò chơi',
     'menu_open' => 'dashboard',
     'current_menu' => 'dashboard',
 ])

@@ -1,5 +1,5 @@
 @extends('layouts.master',[
-    'page_title' => 'Dashboard',
+    'page_title' => 'Trò chơi '.$game->name. ' - Chơi trực tuyến',
     'menu_open' => 'dashboard',
     'current_menu' => 'dashboard',
 ])
