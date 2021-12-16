@@ -14,11 +14,11 @@
                             <div class="top-categories">
                                 <div class="row single-line">
                                     <ul>
-                                        @foreach($categories as $category)
+                                        @foreach($count_games_by_category as $category)
                                         <li class="inactive fighting li-category" style="background-color: {{$category->color}}">
                                             <a class="fighting" href="{{route('get.list.game.client',[$category->slug,$category->id])}}">
                                                 <span class="name">{{$category->name}}</span>
-                                                <span class="number">2,125 game</span>
+                                                <span class="number">{{$category->count}} game</span>
                                             </a>
                                         </li>
                                         @endforeach
@@ -41,8 +41,19 @@
                                         </video>
                                     </div>
                                     <div class="event-text clearfix" style="margin-top: -7px">
-                                        <p class="title-custom">{{$game->name}}</p>
-                                        <p class="plays-count">{{$game->played}} chơi</p>
+                                        <p class="title-custom p-custom">{{$game->name}}</p>
+                                        <div class="technology">
+                                            @if($game->operating_system == 1)
+                                            <p class="unity_webgl p-custom">
+                                                WebGL
+                                            </p>
+                                            @else
+                                            <p class="html5 p-custom">
+                                                HTML5
+                                            </p>
+                                            @endif
+                                        </div>
+                                        <p class="plays-count p-custom">{{$game->played}} chơi</p>
                                     </div>
                                 </div>
                             </a>

@@ -16,7 +16,12 @@ class HomeController extends FrontendController
     {
         $games = Game::where('active', 1)->orderByDesc('id')->paginate(60);
         $countGame = \DB::table('games')->count();
-        return view('dashboards.index', compact('games','countGame'));
+        $count_games_by_category = \DB::table('categories')
+            ->join('games', 'categories.id', '=', 'games.category_id')
+            ->select('categories.id as id', 'categories.name as name', 'categories.slug as slug', 'categories.color as color', \DB::raw("count(*) as count"))
+            ->groupBy('categories.id')
+            ->get();
+        return view('dashboards.index', compact('games','countGame','count_games_by_category'));
     }
 
     public function renderGame(Request $request)

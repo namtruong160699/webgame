@@ -7,7 +7,7 @@ use App\Models\Game;
 use App\User;
 use Auth;
 
-class UserController extends Controller
+class UserController extends FrontendController
 {
     public function index()
     {
