@@ -2,7 +2,7 @@
 <html lang="zxx">
 <head>
 	<meta charset="utf-8">
-	<title>XGame</title>
+	<title>{{$page_title}}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}"/>
 	<link rel="shortcut icon" href="{{asset('Client/assets/img/icon-xgame.jpg')}}">
 
@@ -195,35 +195,27 @@
 								</div>
 								<!-- /col-sm-3 -->
 
-								<div class="col-sm-3">
+								<div class="col-sm-3 menu-games">
 									<div class="footer-head-title text-uppercase pb35">
 										<h2 class="widgettitle">GAME</h2>
 									</div>
-									<!-- /title -->
-									<div class="recent-tweet-list">
-										<div class="tweet-icon pull-left mr20">
-											<span class="red ti-twitter"></span>
-										</div>
-										<div class="tweet-text">
-											<span class="name-tweet"><a class="" href="#">@tonmoymishal</a></span>
-											<span class="tweet-content">Excepteur sint occ aecat cupidatat </span> 
-											<span class="red tweet-link"><a href="#">goo.gl/GjFUTp</a></span>
-											<span class="tweet-time">45 min ago</span>
-										</div>
-									</div>
-									<!-- /list -->
-
-									<div class="recent-tweet-list mt10">
-										<div class="tweet-icon pull-left mr20">
-											<span class="red ti-twitter"></span>
-										</div>
-										<div class="tweet-text">
-											<span class="name-tweet"><a class="" href="#">@tonmoymishal</a></span>
-											<span class="tweet-content">Excepteur sint occ aecat cupidatat </span> 
-											<span class="red tweet-link"><a href="#">goo.gl/GjFUTp</a></span>
-											<span class="tweet-time">45 min ago</span>
-										</div>
-									</div>
+									<ul>
+										<li>
+											<a href="">Game mới</a>
+										</li>
+										<li>
+											<a href="">Tải lên</a>
+										</li>
+										<li>
+											<a href="">Tất cả các thẻ</a>
+										</li>
+										<li>
+											<a href="">Mới tốt nhất</a>
+										</li>
+										<li>
+											<a href="">Tải ứng dụng</a>
+										</li>
+									</ul>
 								</div>
 								<!-- /col-sm-3 -->
 
@@ -245,7 +237,7 @@
 											<span class="name-tweet">Phone: </span>
 											<span class="tweet-content">0975534626</span> 
 										</div>
-										<div class="newsletter-form">
+										<!-- <div class="newsletter-form">
 											<form action="#" method="get" class="nwsltter">
 												<div class="form-group">
 													<input type="email" name="email" placeholder="Your Email" class="form-control">
@@ -254,7 +246,7 @@
 											<div class="submit-btn">
 												<button type="submit" value="Submit"><img src="{{asset('Client/assets/img/inbox.png')}}" alt="image"></button>
 											</div>
-										</div>
+										</div> -->
 									</div>
 								</div>
 								<!-- /col-sm-3 -->
@@ -274,7 +266,7 @@
 				</div>
 			</div>
 			<!-- /footer-main-content -->
-			<div class="footer-menu">
+			<!-- <div class="footer-menu">
 				<div class="container">
 					<div class="row">
 						<div class="footer-menu-content">
@@ -293,7 +285,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</footer>
 	<!-- End of footer section
