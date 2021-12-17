@@ -34,10 +34,10 @@ Route::prefix('admin')->middleware('CheckLoginAdmin')->group(function() {
     });
 
     Route::group(['prefix' => 'game'], function (){
-        Route::get('/', 'AdminGameController@index')->name('get.list.game');
-        Route::get('create', 'AdminGameController@create')->name('get.create.game');
+        Route::get('/', 'AdminGameController@index')->name('admin.get.list.game');
+        Route::get('create', 'AdminGameController@create')->name('admin.get.create.game');
         Route::post('create', 'AdminGameController@store');
-        Route::get('/update/{id}', 'AdminGameController@edit')->name('get.edit.game');
+        Route::get('/update/{id}', 'AdminGameController@edit')->name('admin.get.edit.game');
         Route::post('/update/{id}', 'AdminGameController@update');
     });
 

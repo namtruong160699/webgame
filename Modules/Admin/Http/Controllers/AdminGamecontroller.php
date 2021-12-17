@@ -79,7 +79,7 @@ class AdminGameController extends Controller
         $game->save();
         $game->keywords()->attach($request->keywords);
 
-        return redirect()->route('get.list.game');
+        return redirect()->route('admin.get.list.game');
     }
 
     public function getCategories()
@@ -157,6 +157,6 @@ class AdminGameController extends Controller
         $game->save();
         $game->keywords()->sync($request->keywords);
 
-        return redirect()->route('get.list.game');
+        return redirect()->route('admin.get.list.game');
     }
 }

@@ -206,7 +206,7 @@
                                     <img style="width: 100%" src="https://i.imgur.com/DobCDyr.png" alt="image">
                                 </div>
                             </div>
-                            <div class="category mb40">
+                            <div class="category pt20 mb40">
                                 <div class="post-item box">
                                     <div class="row">
                                         <div class="col-md-12">
