@@ -136,11 +136,11 @@
 							</div>
 						@endif
 						<div id="sb-search" class="sb-search " >
-							    <form action="{{route('get.game.list')}}">
-								   <input class="sb-search-input " onkeyup="buttonUp();" placeholder="Tìm kiếm..." type="search" value="{{\Request::get('search')}}" name="search" id="search">
-								 <input class="sb-search-submit" type="submit"  value="">
-								 <span class="sb-icon-search"><i class="ti-search"></i></span>
-							    </form>
+							<form action="{{route('get.game.list')}}">
+								<input class="sb-search-input " onkeyup="buttonUp();" placeholder="Search for a game" type="search" value="{{\Request::get('search')}}" name="search" id="search">
+								<input class="sb-search-submit" type="submit"  value="">
+								<span class="sb-icon-search"><i class="ti-search"></i></span>
+							</form>
 						</div>
 					</nav>
 					<div class="wrap">

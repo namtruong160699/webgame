@@ -13,7 +13,7 @@
                     <div class="col-sm-12">
                         <div class="search-container box">
                             <form action="{{route('get.game.list')}}" class="search-form">
-                                <input onkeyup="buttonUp();" placeholder="Tìm kiếm..." type="search" value="{{\Request::get('search')}}" name="search" id="search" class="form-control query fake-button">
+                                <input onkeyup="buttonUp();" placeholder="Search for a game" type="search" value="{{\Request::get('search')}}" name="search" id="search" class="form-control query fake-button">
                                 <i class="ti-search"></i>
                                 <button class="search-btn" type="submit">
                                     Tìm kiếm
