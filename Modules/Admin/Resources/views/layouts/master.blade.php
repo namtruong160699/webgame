@@ -213,10 +213,10 @@
             </a>
             <ul class="collapse navigation-submenu" id="sample-pages">
               <li>
-                <a href="{{route('get.create.game')}}" class="{{\Request::route()->getName() == 'get.create.game' ? 'active' : ''}}" aria-expanded="{{\Request::route()->getName() == 'get.create.game' ? 'true' : 'false'}}">Thêm mới</a>
+                <a href="{{route('admin.get.create.game')}}" class="{{\Request::route()->getName() == 'admin.get.create.game' ? 'active' : ''}}" aria-expanded="{{\Request::route()->getName() == 'admin.get.create.game' ? 'true' : 'false'}}">Thêm mới</a>
               </li>
               <li>
-                <a href="{{route('get.list.game')}}" class="{{\Request::route()->getName() == 'get.list.game' ? 'active' : ''}}" aria-expanded="{{\Request::route()->getName() == 'get.list.game' ? 'true' : 'false'}}">Danh sách</a>
+                <a href="{{route('admin.get.list.game')}}" class="{{\Request::route()->getName() == 'admin.get.list.game' ? 'active' : ''}}" aria-expanded="{{\Request::route()->getName() == 'admin.get.list.game' ? 'true' : 'false'}}">Danh sách</a>
               </li>
             </ul>
           </li>
