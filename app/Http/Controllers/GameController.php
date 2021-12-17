@@ -31,7 +31,7 @@ class GameController extends FrontendController
                     'name'  => $keyword->name
                 ];
             }
-            $ratings = Rating::with('user:id,name')->where('ra_game_id',$id)->orderBy('id','DESC')->paginate(4);
+            $ratings = Rating::with('user:id,name')->where('ra_game_id',$id)->orderBy('id','DESC')->get();
 
             // Gom nhóm lại tổng xem
             $ratingsDashboard = Rating::groupBy('ra_number')

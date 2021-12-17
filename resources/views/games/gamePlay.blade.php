@@ -14,15 +14,21 @@
         .reply-comment {
             padding: 35px !important;
         }
+        .post-item {
+            padding: 20px 20px !important;
+        }
+        .instagram-pic-list {
+            padding: 10px 10px !important;
+        }
     </style>
 @endsection
-<section id="blog-details" class="blog-details-section pt60  pb80" style="background-color: #f1f1f1">
+<section id="blog-details" class="blog-details-section pt20 pb20" style="background-color: #f1f1f1">
     <div class="container">
         <div class="row">
             <div class="blog-details-section-content">
                 <div class="row">
                     <div class="col-sm-9">
-                        <div class="blog-details-section-left-side  pb80">
+                        <div class="blog-details-section-left-side pb20">
                             <div class="blog-details-main-pic">
                                 <div class="content">
                                     <div class="background-under-game" style="background: url({{asset(pare_url_file($game->avatar))}})"></div>
@@ -46,12 +52,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- /img -->
-                            <div class="blog-single-text  pb50 box">
+                            <div class="blog-single-text box">
                                 <div class="blog-head-title pt15 pb20">
                                     <h2 class="black"><a href="#">{{$game->name}}</a></h2>
                                 </div>
-                                <!-- /head -->
                                 <div class="blog-recent-post-meta">
                                     <?php
                                         $getGame = \DB::table('games')
@@ -63,7 +67,7 @@
                                         ?>
                                     <ul class="meta-list pb20 mb20">
                                         <li><a class="black" href="#">{{$game->played}} số lần chơi</a></li>
-                                        <li><a class="black" href="#"><span class="mr5 ti-timer"></span> 26 Apr, 2021</a></li>
+                                        <li><a class="black" href="#"><span class="mr5 ti-timer"></span> {{$game->created_at}}</a></li>
                                         @if(!empty($getGame))
                                             <li class="pull-right"><span id="favorite" data-gameid="{{$game->id}}" class="mr5 ti-heart like-game text-danger"></span></li>
                                         @else
@@ -71,18 +75,16 @@
                                         @endif
                                     </ul>
                                 </div>
-                                <!-- recent-post-meta -->
                                 <div class="blog-details-text">
                                     @if($game)
                                         <p>{!! $game->description !!}</p>
                                     @endif
                                 </div>
                             </div>
-                            <!-- / blog-single-text-->
                         </div>
 
                         <div class="comment-area">
-                            <div class="comment-box mb50 box">
+                            <div class="comment-box mb20 box">
                                 <?php
                                     $ageDetail = 0;
                                     if($game->total_rating) {
@@ -144,11 +146,38 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="reply-comment mb50 box">
-                                <div class="side-bar-title mb40">
+                            @if(isset($ratings))
+                            <div class="component_list_rating mb20 box">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12" style="padding:0 25px">
+                                        <div class="idnet-comments">
+                                            @foreach($ratings as $rating)
+                                            <div class="idnet-activity">
+                                                <div class="comment-user-content">
+                                                    <div class="comment-header">
+                                                        <p>
+                                                            <a href="" target="_blank" class="author">{{isset($rating->user->name) ? $rating->user->name : '[N\A]'}}</a>&nbsp;<small><span class="timeago" title="{{$rating->created_at}}">{{$rating->created_at}}</span></small>
+                                                        </p>
+                                                        <span class="game-rating">
+                                                            @for($i = 1 ; $i <= 5 ; $i ++)
+                                                                <span class="mr5 ti-star {{ $i <= $rating->ra_number ? 'active' : '' }}"></span>
+                                                            @endfor
+                                                        </span>
+                                                        <p>{{$rating->ra_content}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                            <div class="reply-comment box">
+                                <div class="side-bar-title">
                                     <h2>Các game liên quan</h2>
                                 </div>
-                                <div class="client-name-reply pb70">
+                                <div class="client-name-reply">
                                     <div class="row">
                                         @foreach($gameSuggests as $game)
                                             <div class="col-sm-2">
@@ -170,13 +199,14 @@
                             </div>
                         </div>
                     </div>
-                    <!-- /col-sm-8 -->
-
                     <div class="col-sm-3">
                         <div class="side-bar-content ml15">
-                            <!-- /side-bar-search -->
+                            <div class="instagram-pic">
+                                <div class="instagram-pic-list box">
+                                    <img style="width: 100%" src="https://i.imgur.com/DobCDyr.png" alt="image">
+                                </div>
+                            </div>
                             <div class="category mb40">
-                                <!-- /title -->
                                 <div class="post-item box">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -200,34 +230,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- /category-item -->
-
-                            <div class="instagram-pic">
-                                <div class="side-bar-title mb40">
-                                    <h2 class="widgettitle">Quảng cáo</h2>
-                                </div>
-                                <!-- /title -->
-
-                                <div class="instagram-pic-list box">
-                                    <ul class="footer-gallery text-center">
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-1.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-2.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-3.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-4.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-9.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-6.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-7.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-8.jpg')}}" alt="image"></a></li>
-                                        <li><a href="#"><img src="{{asset('Client/assets/img/ins-9.jpg')}}" alt="image"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- /instagram-pic-list -->
                         </div>
                     </div>
-                    <!-- /col-md-4 -->
                 </div>
-                <!-- /row -->
             </div>
         </div>
     </div>

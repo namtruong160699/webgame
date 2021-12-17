@@ -685,3 +685,64 @@ i.tag-36x28-14 {
     letter-spacing: 0;
     text-decoration: none;
 }
+.game-rating .active {
+	color: #fd9727;
+}
+.idnet-comments {
+    display: -webkit-box;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -moz-flex-flow: row wrap;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    clear: both;
+    margin-right: -10px;
+    padding-top: 20px;
+}
+.idnet-activity {
+    -webkit-flex: auto;
+    -moz-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    word-break: break-all;
+    margin-right: 10px;
+}
+.comment-user-content {
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    background: #f2f2f2;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.comment-header {
+    display: inline-block;
+    font-size: 13px;
+    margin-top: -1px;
+    vertical-align: middle;
+}
+.comment-header p {
+    margin: 0;
+    padding: 0;
+}
+.comment-header .author {
+    color: #d60000;
+    font-size: 12px;
+    font-weight: bold;
+}
+.comment-header abbr[title] {
+    border: 0;
+    color: #999;
+    font-size: 11px;
+}
+.list_start .rating_active {
+	color: #ff9705;
+}
+.list_start span:hover {
+	cursor: pointer;
+}
