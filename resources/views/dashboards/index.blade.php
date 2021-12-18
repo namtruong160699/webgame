@@ -28,7 +28,7 @@
                         </div>
                     </div>
                     <div class="col-md-12">
-                        <h3>Trò chơi ({{$countGame}})</h3>
+                        <h3>Games ({{$countGame}})</h3>
                     </div>
                     @foreach($games as $game)
                         <div class="col-sm-2">
@@ -53,7 +53,7 @@
                                             </p>
                                             @endif
                                         </div>
-                                        <p class="plays-count p-custom">{{$game->played}} chơi</p>
+                                        <p class="plays-count p-custom">{{number_format($game->played)}} plays</p>
                                     </div>
                                 </div>
                             </a>

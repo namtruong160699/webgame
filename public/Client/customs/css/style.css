@@ -746,3 +746,11 @@ i.tag-36x28-14 {
 .list_start span:hover {
 	cursor: pointer;
 }
+.block-title .number-with-dot::before {
+    color: #bbb;
+    content: '\2022';
+    font-size: 11px;
+    padding: 0 7px;
+    position: relative;
+    top: -1px;
+}

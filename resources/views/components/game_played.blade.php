@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <h3>Lịch sử các trò đã chơi</h3>
+        <h3>History of games played</h3>
     </div>
     @foreach($gameView as $game)
         <div class="col-sm-2">
@@ -25,7 +25,7 @@
                             </p>
                             @endif
                         </div>
-                        <p class="plays-count p-custom">{{$game->played}} chơi</p>
+                        <p class="plays-count p-custom">{{number_format($game->played)}} plays</p>
                     </div>
                 </div>
             </a>
