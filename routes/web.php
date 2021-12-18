@@ -43,6 +43,7 @@ Route::get('categories/{slug}-{id}','CategoryController@getListGame')->name('get
 Route::get('game','CategoryController@getListGame')->name('get.game.list');
 Route::post('/danh-gia/{id}','RatingController@saveRating')->name('post.rating.game');
 Route::post('game-fav-game','GameController@gameFavGame')->name('ajax.game.fav.game');
+Route::get('/ajax_comment','GameController@ajax_comments')->name('get.ajax.comments');
 
 Route::group(['prefix'=>'ajax'],function (){
     Route::post('/view-game','HomeController@renderGame')->name('get.games.played');

@@ -93,7 +93,7 @@
                                             </p>
                                             @endif
                                         </div>
-                                        <p class="plays-count p-custom">{{$game->played}} chơi</p>
+                                        <p class="plays-count p-custom">{{number_format($game->played)}} plays</p>
                                     </div>
                                 </div>
                             </a>

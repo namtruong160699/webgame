@@ -31,7 +31,7 @@ class GameController extends FrontendController
                     'name'  => $keyword->name
                 ];
             }
-            $ratings = Rating::with('user:id,name')->where('ra_game_id',$id)->orderBy('id','DESC')->get();
+            $ratings = Rating::with('user:id,name')->where('ra_game_id',$id)->orderBy('id','DESC')->paginate(20);
 
             // Gom nhóm lại tổng xem
             $ratingsDashboard = Rating::groupBy('ra_number')
@@ -121,5 +121,13 @@ class GameController extends FrontendController
             ->get();
 
         return $games;
+    }
+
+    public function ajax_comments(Request $request)
+    {
+        $game_id = $request->idGame;
+        $ratings = Rating::with('user:id,name')->where('ra_game_id',$game_id)->orderBy('id','DESC')->paginate(20);
+
+        return view('components.comments', compact('ratings'))->render();
     }
 }

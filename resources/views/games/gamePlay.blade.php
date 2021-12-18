@@ -66,7 +66,7 @@
                                             ->toArray();
                                         ?>
                                     <ul class="meta-list pb20 mb20">
-                                        <li><a class="black" href="#">{{$game->played}} số lần chơi</a></li>
+                                        <li><a class="black" href="#">{{number_format($game->played)}} plays</a></li>
                                         <li><a class="black" href="#"><span class="mr5 ti-timer"></span> {{$game->created_at}}</a></li>
                                         @if(!empty($getGame))
                                             <li class="pull-right"><span id="favorite" data-gameid="{{$game->id}}" class="mr5 ti-heart like-game text-danger"></span></li>
@@ -97,7 +97,7 @@
                                     <div class="rating-item" style="width: 15%;position: relative">
                                         <span class="mr5 ti-star"
                                             style="font-size: 100px;color: #fd9727;display: block;margin: 0 auto;text-align: center"></span><b
-                                            style="position: absolute;top: 57%;left: 50%;transform: translateX(-50%) translateY(-50%);color: #F78802;font-size: 20px">{{$ageDetail}}</b>
+                                            style="position: absolute;top: 57%;left: 50%;transform: translateX(-50%) translateY(-50%);color: #F78802;font-size: 15px">{{$ageDetail}}</b>
                                     </div>
                                     <div class="list-rating" style="width: 65%;padding: 20px">
                                         @foreach($arrayRatings as $key => $arrayRating)
@@ -150,24 +150,13 @@
                             <div class="component_list_rating mb20 box">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12" style="padding:0 25px">
-                                        <div class="idnet-comments">
-                                            @foreach($ratings as $rating)
-                                            <div class="idnet-activity">
-                                                <div class="comment-user-content">
-                                                    <div class="comment-header">
-                                                        <p>
-                                                            <a href="" target="_blank" class="author">{{isset($rating->user->name) ? $rating->user->name : '[N\A]'}}</a>&nbsp;<small><span class="timeago" title="{{$rating->created_at}}">{{$rating->created_at}}</span></small>
-                                                        </p>
-                                                        <span class="game-rating">
-                                                            @for($i = 1 ; $i <= 5 ; $i ++)
-                                                                <span class="mr5 ti-star {{ $i <= $rating->ra_number ? 'active' : '' }}"></span>
-                                                            @endfor
-                                                        </span>
-                                                        <p>{{$rating->ra_content}}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            @endforeach
+                                        <h3 class="block-title uppercase pt20">
+                                            Bình luận
+                                            <span class="number-with-dot comments-counter counter">{{isset($game->total_rating) ? $game->total_rating : 0}}</span>
+                                            
+                                        </h3>
+                                        <div id="comments">
+                                            @include('components.comments')
                                         </div>
                                     </div>
                                 </div>
@@ -188,7 +177,7 @@
                                                         </div>
                                                         <div class="event-text clearfix ">
                                                             <p class="title-custom">{{$game->name}}</p>
-                                                            <p class="plays-count">{{$game->played}} chơi</p>
+                                                            <p class="plays-count">{{number_format($game->played)}} plays</p>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -383,4 +372,33 @@
             frames['iframe'].document.head.appendChild(cssLink);
         });
     </script> -->
+    <script>
+        $(document).ready(function(){
+
+            $(document).on('click', '.pagination a', function(event){
+                event.preventDefault(); 
+                var page = $(this).attr('href').split('page=')[1];
+                var idGame = $("#content_game").attr('data-id');
+                fetch_data(page, idGame);
+            });
+
+            function fetch_data(page, idGame)
+            {
+                $.ajax({
+                    url:"{{route('get.ajax.comments')}}?page="+page,
+                    data: {
+                        idGame:idGame,
+                    },
+                    type: "GET",
+                    success:function(data)
+                    {
+                        $('#comments').html(data);
+                    },
+                    error: function () {
+                    }
+                });
+            }
+        
+        });
+    </script>
 @endsection
