@@ -616,7 +616,7 @@ input[type="text"] {
     filter: blur(50px);
     background-size: cover;
     bottom: 0;
-    height: 35%;
+    height: 25%;
     left: 0;
     opacity: .3;
     position: absolute;
@@ -753,4 +753,53 @@ i.tag-36x28-14 {
     padding: 0 7px;
     position: relative;
     top: -1px;
+}
+.blog-game-button a:last-child {
+    border: 0;
+    margin-right: 0;
+}
+@media (max-width: 1023px) {
+	.item-show .infos .sub-controls a {
+		font-size: 14px;
+	}
+}
+.blog-game-button a {
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -ms-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
+    display: -webkit-box;
+    display: -moz-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    background: rgba(0,0,0,0.06);
+    border-radius: 8px;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    height: 36px;
+    line-height: 36px;
+    margin: 0 7px 7px 0;
+    padding: 0 8px;
+}
+.blog-game-button a .report-bug-icon {
+    background-position: -32px 0;
+}
+.game-button-icon {
+    background: url('https://img-hws.y8.com/assets/icons/game-page-button-icon-sprite-68717d77c08f74ca6e756c090bd13691e8393404a9cb663305c12b4a27c3993c.png') no-repeat;
+    display: inline-block;
+    height: 16px;
+    margin: 0 2px;
+    width: 16px;
+}
+.game-button-icon a span {
+    margin: 0 4px;
 }

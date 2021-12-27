@@ -75,6 +75,12 @@
                                         @endif
                                     </ul>
                                 </div>
+                                <div class="blog-game-button pb20">
+                                    <a href="{{route('get.contact.game',[$game->file_game,$game->id])}}">
+                                        <div class="game-button-icon report-bug-icon"></div>
+                                        <span>Báo cáo về các sai sót của game</span>
+                                    </a>
+                                </div>
                                 <div class="blog-details-text">
                                     @if($game)
                                         <p>{!! $game->description !!}</p>
@@ -379,10 +385,10 @@
                 event.preventDefault(); 
                 var page = $(this).attr('href').split('page=')[1];
                 var idGame = $("#content_game").attr('data-id');
-                fetch_data(page, idGame);
+                ajax_comments(page, idGame);
             });
 
-            function fetch_data(page, idGame)
+            function ajax_comments(page, idGame)
             {
                 $.ajax({
                     url:"{{route('get.ajax.comments')}}?page="+page,
