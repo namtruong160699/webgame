@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Game;
 use App\Models\Rating;
 use App\Models\UserFavourite;
+use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
 use App\Services\ProcessViewService;
 
@@ -129,5 +130,28 @@ class GameController extends FrontendController
         $ratings = Rating::with('user:id,name')->where('ra_game_id',$game_id)->orderBy('id','DESC')->paginate(20);
 
         return view('components.comments', compact('ratings'))->render();
+    }
+
+    public function getContactGame(Request $request)
+    {
+        $url = $request->segment(3);
+        $url = preg_split('/(-)/i',$url);
+        if ($id = array_pop($url))
+        {
+            $game = Game::find($id);
+            return view('games.contact', compact('game'));
+        }
+    }
+
+    public function postContactGame(Request $request)
+    {
+        $contact = new Contact;
+        $contact->game_id = $request->game_id;
+        $contact->email = $request->email;
+        $contact->content = $request->content;
+        $contact->save();
+
+        \Session::flash('send-success');
+        return redirect()->back();
     }
 }
