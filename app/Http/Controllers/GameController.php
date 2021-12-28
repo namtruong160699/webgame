@@ -145,13 +145,31 @@ class GameController extends FrontendController
 
     public function postContactGame(Request $request)
     {
-        $contact = new Contact;
-        $contact->game_id = $request->game_id;
-        $contact->email = $request->email;
-        $contact->content = $request->content;
-        $contact->save();
+        $validator = \Validator::make($request->all(), [
+            'email'                 => 'required',
+            'content'               => 'required',
+            'g-recaptcha-response'  => 'required|captcha'
+        ],[
+            'email.required'                => 'Vui lòng nhập email của bạn',
+            'content.required'              => 'Vui lòng nhập nội dung',
+            'g-recaptcha-response.required' => 'Google reCAPTCHA does not accept this submission. Try again please, or contact to Site support services.'
+        ]);
 
-        \Session::flash('send-success');
-        return redirect()->back();
+        if(!$validator->passes()) {
+            return response()->json(['status'=>0, 'error'=>$validator->errors()->toArray()]);
+        }else {
+            $contact = new Contact;
+            $contact->game_id = $request->game_id;
+            $contact->email = $request->email;
+            $contact->content = $request->content;
+            $contact->save();
+
+            return response()->json(['status'=> 'success','msg'=>'Thanks.Your message has been sent to our team!']);
+        }
+    }
+
+    public function thankYou()
+    {
+        return view('games.thanks');
     }
 }
