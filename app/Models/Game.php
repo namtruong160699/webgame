@@ -19,4 +19,9 @@ class Game extends Model
     {
         return $this->belongsToMany(User::class, 'user_favourite','game_id','user_id');
     }
+
+    public function isNew()
+    {
+        return time() - (60 * 60 * 24 * 7) < strtotime($this->created_at);
+    }
 }

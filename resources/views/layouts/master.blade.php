@@ -82,7 +82,7 @@
 					<nav class="navbar">
 						<!-- Brand and toggle get grouped for better mobile display -->
 						<div class="navbar-header">
-							<a style="padding-top: 25px" class="navbar-brand" href="{{route('client.dashboard')}}"><img style="width: 110px" src="{{asset('Client/assets/img/logo_xgame.png')}}" alt="image"></a>
+							<a style="padding-top: 25px" class="navbar-brand" href="{{route('client.dashboard')}}"><img src="{{asset('Client/assets/img/logo_xgame.png')}}" alt="image"></a>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -189,7 +189,7 @@
 							<div class="row">
 								<div class="col-sm-3">
 									<div class="footer-logo pb20">
-										<a  href="home-1.html"><img src="{{asset('Client/assets/img/icon-xgame.jpg')}}" alt="image"></a>
+										<a  href="{{route('client.dashboard')}}"><img src="{{asset('Client/assets/img/logo_xgame.png')}}" alt="image"></a>
 									</div>
 									<div class="footer-text">
 										<p>Mùa hè năm 2018, những con người mang trong mình lòng đam mê và sự nhiệt huyết về công nghệ đã đặt những viên gạch đầu tiên thành lập nên ngôi nhà XGame.</p>

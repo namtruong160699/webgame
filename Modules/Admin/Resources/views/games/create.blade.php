@@ -155,7 +155,7 @@
     });
     CKEDITOR.replace('description');
 </script>
-<script>
+<!-- <script>
     $(function() {
         if($(".select2bs4").length > 0) {
             $(".select2bs4").select2({
@@ -164,5 +164,5 @@
             });
         }
     });
-</script>
+</script> -->
 @stop

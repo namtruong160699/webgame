@@ -31,32 +31,41 @@
                         <h3>Games ({{$countGame}})</h3>
                     </div>
                     @foreach($games as $game)
-                        <div class="col-sm-2">
-                            <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
-                                <div class="event-list-item colmd4">
-                                    <div class="event-list-pic video2">
-                                        <img class="img-custom overlayImage" data-original="{{asset(pare_url_file($game->avatar))}}" alt="image">
-                                        <video class="thevideo" loop muted poster="{{asset(pare_url_file($game->avatar))}}" onmouseout="this.pause()">
-                                            <source src="{{asset('uploads/video/'.$game->video)}}" type="video/mp4">
-                                        </video>
-                                    </div>
-                                    <div class="event-text clearfix" style="margin-top: -7px">
-                                        <p class="title-custom p-custom">{{$game->name}}</p>
-                                        <div class="technology">
-                                            @if($game->operating_system == 1)
-                                            <p class="unity_webgl p-custom">
-                                                WebGL
-                                            </p>
-                                            @else
-                                            <p class="html5 p-custom">
-                                                HTML5
-                                            </p>
-                                            @endif
+                        <div class="col-md-2 col-sm-3 col-game">
+                            <div id="item_{{$game->id}}" class="item thumb videobox">
+                                <input type="hidden" name="for-girls-{{$game->id}}" id="for-girls-{{$game->id}}" value="false">
+                                <div class="thumbarea">
+                                    <div class="microthumb"></div>
+                                    <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
+                                        <div class="thumb-img-container video2">
+                                            <img class="thumb playable img-custom overlayImage" alt="{{$game->name}}" src="{{asset(pare_url_file($game->avatar))}}">
+                                            <video class="thevideo" loop muted onmouseout="this.pause()">
+                                                <source src="{{asset('uploads/video/'.$game->video)}}" type="video/mp4">
+                                            </video>
                                         </div>
-                                        <p class="plays-count p-custom">{{number_format($game->played)}} plays</p>
-                                    </div>
+                                    </a>
                                 </div>
-                            </a>
+                                <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
+                                    <div class="infos">
+                                    <p class="title ltr">{{$game->name}}</p>
+                                    <div class="technology">
+                                        @if($game->operating_system == 1)
+                                        <p class="unity_webgl p-custom">
+                                            WebGL
+                                        </p>
+                                        @else
+                                        <p class="html5 p-custom">
+                                            HTML5
+                                        </p>
+                                        @endif
+                                        @if($game->isNew())
+                                            <span class="new-item-icon">New</span>
+                                        @endif
+                                    </div>
+                                    <p class="plays-count">{{number_format($game->played)}} chơi</p>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     @endforeach
                 </div>

@@ -167,9 +167,4 @@ class GameController extends FrontendController
             return response()->json(['status'=> 'success','msg'=>'Thanks.Your message has been sent to our team!']);
         }
     }
-
-    public function thankYou()
-    {
-        return view('games.thanks');
-    }
 }

@@ -12,11 +12,11 @@
                     <div class="contact-form-title">
                         <div class="section-title text-center">
                             <div class="section-title-text text-uppercase">
-                                <p>DON'T FORGET TO</p>
+                                <p>ĐĂNG KÝ</p>
                             </div>
-                            <div class="section-title-text">
+                            <!-- <div class="section-title-text">
                                 <h2>Đăng ký</h2>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <!-- / contact-form-title-->
@@ -25,17 +25,17 @@
                             <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="contact-comment-info">
-                                    <input class="name" name="name" type="text" placeholder="Your Name..">
+                                    <input class="name" name="name" type="text" placeholder="Tên của bạn">
                                 </div>
                                 <div class="contact-comment-info">
-                                    <input class="email" name="email" type="email" placeholder="Your Email..">
+                                    <input class="email" name="email" type="email" placeholder="Email của bạn">
                                 </div>
                                 <div class="contact-comment-info">
-                                    <input class="email" name="phone" type="number" placeholder="Phone Number...">
+                                    <input class="email" name="phone" type="number" placeholder="Số điện thoại của bạn">
                                 </div>
                                 <div class="contact-comment-info">
                                     <div class="contact-comment-info">
-                                        <input class="email" name="password" type="password" placeholder="Password">
+                                        <input class="email" name="password" type="password" placeholder="Mật khẩu">
                                     </div>
                                 </div>
                                 <div class="send-button text-uppercase text-center">
