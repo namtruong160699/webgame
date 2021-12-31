@@ -24,6 +24,11 @@ Author:        HTMLmate
 ------------------------------------------------------------------------------------------ */
 
 @media screen and (max-width: 991px) { 
+	.home-login.login-btn {
+		position: absolute;
+		right: 114px;
+		top: 36px;
+	}
 	.nav>li>a {
 		padding: 39px 5px;
 	}
@@ -175,6 +180,10 @@ Author:        HTMLmate
 	.count-right-img:after {
 		display: none;
 	}
+	.navbar-header > a > img {
+		height: auto;
+		width: 67px;
+	}
 }
 
 @media screen and (max-width: 480px) { 
@@ -288,8 +297,15 @@ Author:        HTMLmate
 	.home-donate.donate-btn-1 a {
 		padding: 6px 8px;
 	}
+	.home-login.login-btn a {
+		padding: 6px 8px;
+	}
 	.home-donate.donate-btn-1 {
 		top: 30px;
+	}
+	.home-login.login-btn {
+		top: 30px;
+		right: 90px;
 	}
 	.menu-bar {
 		padding-bottom: 20px;

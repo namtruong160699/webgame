@@ -1,4 +1,8 @@
-@extends('layouts.master')
+@extends('layouts.master',[
+    'page_title' => 'Lấy lại mật khẩu',
+    'menu_open' => '',
+    'current_menu' => '',
+])
 @section('content')
 <section id="contact-us" class="contact-us-section" style="background-color: #f1f1f1">
     <div class="container">

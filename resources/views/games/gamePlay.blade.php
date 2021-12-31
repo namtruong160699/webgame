@@ -33,9 +33,8 @@
                                 <div class="content">
                                     <div class="background-under-game" style="background: url({{asset(pare_url_file($game->avatar))}})"></div>
                                     <div class="item-container" id="content_game" data-id="{{$game->id}}">
-                                        <iframe class="iframe-close" name="iframe" id="iframe" src="filegame/{{$game->file_game}}/index.html" title="Iframe Game"
-                                            style="width: 100%;height: 100%;"></iframe>
-                                        <div class="game-control-container">
+                                        <iframe class="iframe-close" name="iframe" id="iframe" src="filegame/{{$game->file_game}}/index.html" width="960" height="540"></iframe>
+                                        <!-- <div class="game-control-container">
                                             <div class="left-control-container"></div>
                                             <div class="right-control-container">
                                                 <h5 class="game-control-title">Điều chỉnh hoặc tối đa</h5>
@@ -48,7 +47,7 @@
                                                     </a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -198,7 +197,7 @@
                         <div class="side-bar-content ml15">
                             <div class="instagram-pic">
                                 <div class="instagram-pic-list box">
-                                    <img style="width: 100%" src="https://i.imgur.com/DobCDyr.png" alt="image">
+                                    <!-- <img style="width: 100%" src="https://i.imgur.com/DobCDyr.png" alt="image"> -->
                                 </div>
                             </div>
                             <div class="category pt20 mb40">
