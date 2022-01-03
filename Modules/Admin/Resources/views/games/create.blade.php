@@ -53,8 +53,8 @@
                                             <label>Phiên bản</label>
                                             <select class="custom-select" id="operating_system" name="operating_system">
                                                 <option selected="selected">Chọn phiên bản</option>
-                                                <option value="1">IOS</option>
-                                                <option value="2">Android</option>
+                                                <option value="1">WebGL</option>
+                                                <option value="2">HTML5</option>
                                             </select>
                                         </div>
                                     </div>

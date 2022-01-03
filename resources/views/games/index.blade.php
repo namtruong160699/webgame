@@ -89,7 +89,7 @@
                                     <div class="infos">
                                     <p class="title ltr">{{$game->name}}</p>
                                     <div class="technology">
-                                        @if($game->operating_system == 1)
+                                        <!-- @if($game->operating_system == 1)
                                         <p class="unity_webgl p-custom">
                                             WebGL
                                         </p>
@@ -97,7 +97,7 @@
                                         <p class="html5 p-custom">
                                             HTML5
                                         </p>
-                                        @endif
+                                        @endif -->
                                         @if($game->isNew())
                                             <span class="new-item-icon">New</span>
                                         @endif

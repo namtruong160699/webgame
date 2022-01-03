@@ -69,7 +69,7 @@ class GameController extends FrontendController
                 'ratings'       => $ratings,
                 'arrayRatings'  => $arrayRatings,
                 'keywords'      => $keywords,
-                'gameSuggests'  => $this->getGameSuggests($game->category_id)
+                'gameSuggests'  => $this->getGameSuggests($game->category_id, $id)
             ];
 
             return view('games.gamePlay', $viewData);
@@ -111,13 +111,14 @@ class GameController extends FrontendController
         return response()->json($response, 200);
     }
 
-    private function getGameSuggests($categoryId)
+    private function getGameSuggests($categoryId, $game_id)
     {
         $games = Game::where([
             'category_id'   => $categoryId
         ])
+            ->where('id', '<>', $game_id)
             ->orderByDesc('id')
-            ->select('id','name','file_game','avatar','played')
+            ->select('id','name','file_game','avatar','played','video')
             ->limit(6)
             ->get();
 

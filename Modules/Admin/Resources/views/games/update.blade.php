@@ -53,8 +53,8 @@
                                             <label>Phiên bản</label>
                                             <select class="custom-select" id="operating_system" name="operating_system">
                                                 <option selected="selected">Chọn phiên bản</option>
-                                                <option value="1" {{$game->operating_system == 1?"selected='selected'" : ""}}>IOS</option>
-                                                <option value="2" {{$game->operating_system == 2?"selected='selected'" : ""}}>Android</option>
+                                                <option value="1" {{$game->operating_system == 1?"selected='selected'" : ""}}>WebGL</option>
+                                                <option value="2" {{$game->operating_system == 2?"selected='selected'" : ""}}>HTML5</option>
                                             </select>
                                         </div>
                                     </div>
