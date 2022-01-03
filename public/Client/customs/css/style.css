@@ -897,6 +897,9 @@ i.tag-36x28-14 {
 	.col-game {
 		width: 50%;
 	}
+	.reply-comment {
+		display: none;
+	}
 }
 .col-game {
 	float: left;

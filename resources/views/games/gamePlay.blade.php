@@ -54,6 +54,7 @@
                             <div class="blog-single-text box">
                                 <div class="blog-head-title pt15 pb20">
                                     <h2 class="black"><a href="#">{{$game->name}}</a></h2>
+                                    <input type="hidden" name="type_value" id="type_value" value="{{$game->operating_system}}">
                                 </div>
                                 <div class="blog-recent-post-meta">
                                     <?php
@@ -174,19 +175,33 @@
                                 <div class="client-name-reply">
                                     <div class="row">
                                         @foreach($gameSuggests as $game)
-                                            <div class="col-sm-2">
+                                        <div class="col-md-2 col-sm-3 col-game">
+                                            <div id="item_{{$game->id}}" class="item thumb videobox">
+                                                <input type="hidden" name="for-girls-{{$game->id}}" id="for-girls-{{$game->id}}" value="false">
+                                                <div class="thumbarea">
+                                                    <div class="microthumb"></div>
+                                                    <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
+                                                        <div class="thumb-img-container video2">
+                                                            <img class="thumb playable img-custom overlayImage" alt="{{$game->name}}" src="{{asset(pare_url_file($game->avatar))}}">
+                                                            <video class="thevideo" loop muted onmouseout="this.pause()">
+                                                                <source src="{{asset('uploads/video/'.$game->video)}}" type="video/mp4">
+                                                            </video>
+                                                        </div>
+                                                    </a>
+                                                </div>
                                                 <a href="{{route('get.games.play',[$game->file_game,$game->id])}}">
-                                                    <div class="event-list-item colmd4">
-                                                        <div class="event-list-pic">
-                                                            <img class="img-custom" src="{{asset(pare_url_file($game->avatar))}}" alt="image">
-                                                        </div>
-                                                        <div class="event-text clearfix ">
-                                                            <p class="title-custom">{{$game->name}}</p>
-                                                            <p class="plays-count">{{number_format($game->played)}} plays</p>
-                                                        </div>
+                                                    <div class="infos">
+                                                    <p class="title ltr">{{$game->name}}</p>
+                                                    <div class="technology">
+                                                        @if($game->isNew())
+                                                            <span class="new-item-icon">New</span>
+                                                        @endif
+                                                    </div>
+                                                    <p class="plays-count">{{number_format($game->played)}} chơi</p>
                                                     </div>
                                                 </a>
                                             </div>
+                                        </div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -360,50 +375,55 @@
             }
         }
     </script>
-    <!-- <script>
+    <script>
         $( document ).ready(function() {
+            var type_value = $("#type_value").val();
             var cssLink = document.createElement("link");
-            cssLink.href = "{{asset('Client/customs/css/canvas.css')}}";
+            if(type_value == 2) {
+                cssLink.href = "{{asset('Client/customs/css/canvas.css')}}";
+            }else {
+                cssLink.href = "{{asset('Client/customs/css/canvas2.css')}}";
+            }
             cssLink.rel = "stylesheet"; 
             cssLink.type = "text/css"; 
             frames['iframe'].document.head.appendChild(cssLink);
         });
 
         $( window ).on( "load", function() {
+            var type_value = $("#type_value").val();
             var cssLink = document.createElement("link");
-            cssLink.href = "{{asset('Client/customs/css/canvas.css')}}";
+            if(type_value == 2) {
+                cssLink.href = "{{asset('Client/customs/css/canvas.css')}}";
+            }else {
+                cssLink.href = "{{asset('Client/customs/css/canvas2.css')}}";
+            }
             cssLink.rel = "stylesheet"; 
             cssLink.type = "text/css"; 
             frames['iframe'].document.head.appendChild(cssLink);
         });
-    </script> -->
-    <script>
-        $(document).ready(function(){
 
-            $(document).on('click', '.pagination a', function(event){
-                event.preventDefault(); 
-                var page = $(this).attr('href').split('page=')[1];
-                var idGame = $("#content_game").attr('data-id');
-                ajax_comments(page, idGame);
-            });
-
-            function ajax_comments(page, idGame)
-            {
-                $.ajax({
-                    url:"{{route('get.ajax.comments')}}?page="+page,
-                    data: {
-                        idGame:idGame,
-                    },
-                    type: "GET",
-                    success:function(data)
-                    {
-                        $('#comments').html(data);
-                    },
-                    error: function () {
-                    }
-                });
-            }
-        
+        $(document).on('click', '.pagination a', function(event){
+            event.preventDefault(); 
+            var page = $(this).attr('href').split('page=')[1];
+            var idGame = $("#content_game").attr('data-id');
+            ajax_comments(page, idGame);
         });
+
+        function ajax_comments(page, idGame)
+        {
+            $.ajax({
+                url:"{{route('get.ajax.comments')}}?page="+page,
+                data: {
+                    idGame:idGame,
+                },
+                type: "GET",
+                success:function(data)
+                {
+                    $('#comments').html(data);
+                },
+                error: function () {
+                }
+            });
+        }
     </script>
 @endsection
