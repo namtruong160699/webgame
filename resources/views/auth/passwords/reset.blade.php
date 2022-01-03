@@ -14,7 +14,7 @@
                     </div>
                     <div class="contact-comment-form pb50 clearfix">
                         <div class="comment-form">
-                            <form id="contact_form" action="#" method="POST">
+                            <form id="submit_form" action="#" method="POST">
                                 @csrf
                                 <div class="contact-comment-info">
                                     <input name="password" type="password" placeholder="Mật khẩu mới">

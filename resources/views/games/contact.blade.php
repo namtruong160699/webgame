@@ -35,7 +35,7 @@
                     </div>
                     <div class="contact-comment-form pb50 clearfix">
                         <div class="comment-form">
-                            <form id="contact_form" action="" method="POST" enctype="multipart/form-data">
+                            <form id="submit_form" action="" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="contact-comment-info">
                                     <input class="email" name="email" type="email" placeholder="E-mail của bạn">
@@ -68,32 +68,4 @@
         </div>
     </div>
 </section>
-@endsection
-@section('script')
-    <script>
-        $('#contact_form').on('submit', function(e){
-            e.preventDefault();
-            $.ajax({
-                url:$(this).attr('action'),
-                method:$(this).attr('method'),
-                data:new FormData(this),
-                processData:false,
-                dataType:'json',
-                contentType:false,
-                beforeSend:function(){
-                $(document).find('strong.error-text').text('');
-                },
-                success:function(data){
-                if(data.status == 0){
-                    $.each(data.error, function(prefix, val){
-                    $('strong.'+prefix+'_error').text(val[0]);
-                    });
-                }else{
-                    $('#contact_form')[0].reset();
-                    $.notify(data.msg, data.status);
-                }
-                }
-            });
-        });
-    </script>
 @endsection

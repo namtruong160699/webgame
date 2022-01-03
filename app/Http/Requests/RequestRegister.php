@@ -24,7 +24,7 @@ class RequestRegister extends FormRequest
     public function rules()
     {
         return [
-            'email'    => 'required|max:190|min:3|unique:users,email,' . $this->id,
+            'email'    => 'required|unique:users,email,' . $this->id,
             'name'     => 'required',
             'password' => 'required',
             'phone'    => 'required',
@@ -34,11 +34,11 @@ class RequestRegister extends FormRequest
     public function messages()
     {
         return [
-            'email.required'    => 'Dữ liệu không được để trống',
-            'email.unique'      => 'Dữ liệu đã tồn tại',
-            'name.required'     => 'Dữ liệu không được để trống',
-            'password.required' => 'Dữ liệu không được để trống',
-            'phone.required'    => 'Dữ liệu không được để trống',
+            'email.required'    => 'Vui lòng nhập email của bạn',
+            'email.unique'      => 'Email đã tồn tại',
+            'name.required'     => 'Vui lòng nhập tên của bạn',
+            'password.required' => 'Vui lòng nhập mật khẩu',
+            'phone.required'    => 'Vui lòng nhập số điện thoại của bạn',
         ];
     }
 }

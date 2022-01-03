@@ -10,7 +10,7 @@
             <div class="event-list-content">
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="reply-comment box">
+                        <div class="reply-comment box mini-menu-custom">
                             <div class="top-categories">
                                 <div class="row single-line">
                                     <ul>

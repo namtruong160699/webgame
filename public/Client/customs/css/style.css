@@ -888,6 +888,11 @@ i.tag-36x28-14 {
 		width: 25%;
 	}
 }
+@media (max-width: 1199px) {
+	.mini-menu-custom {
+		display: none;
+	}
+}
 @media (max-width: 599px) {
 	.col-game {
 		width: 33.3333%;
@@ -897,7 +902,7 @@ i.tag-36x28-14 {
 	.col-game {
 		width: 50%;
 	}
-	.reply-comment {
+	.mini-menu-custom {
 		display: none;
 	}
 }
