@@ -1,5 +1,5 @@
 @extends('layouts.master',[
-    'page_title' => 'Dashboard',
+    'page_title' => 'Đăng nhập',
     'menu_open' => 'dashboard',
     'current_menu' => 'dashboard',
 ])
@@ -22,7 +22,7 @@
                     <!-- / contact-form-title-->
                     <div class="contact-comment-form pb50 clearfix">
                         <div class="comment-form">
-                            <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+                            <form id="submit_form" action="#" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="contact-comment-info">
                                     <input class="email" name="email" type="email" placeholder="Email của bạn">

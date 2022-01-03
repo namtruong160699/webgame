@@ -21,7 +21,7 @@
                             </form>
                             <div class="advanced-serach-options">
                                 <div class="title">Tùy chọn tìm kiếm nâng cao</div>
-                                <div class="column-container">
+                                <!-- <div class="column-container">
                                     <div class="column">
                                         <div class="gray-select timeframe-select open">
                                             <select class="select-header" name="" id="" style="border: unset">
@@ -52,7 +52,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

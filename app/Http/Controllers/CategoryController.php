@@ -37,7 +37,7 @@ class CategoryController extends FrontendController
                 }
             }
 
-            $games = $games->paginate(6);
+            $games = $games->paginate(60);
 
             $categoryGame = Game::find($id);
 
@@ -55,7 +55,7 @@ class CategoryController extends FrontendController
                 'active'    => 1
             ])->where('name','like','%'.$request->search.'%');
 
-            $games = $games->paginate(6);
+            $games = $games->paginate(60);
 
             return view('games.index',compact('games'));
         }

@@ -1,8 +1,22 @@
 @extends('layouts.master',[
-    'page_title' => 'Dashboard',
+    'page_title' => 'Đăng ký',
     'menu_open' => 'dashboard',
     'current_menu' => 'dashboard',
 ])
+@section('style')
+    <style>
+        .contact-comment-info input {
+            width: 100% !important;
+        }
+        .contact-comment-info textarea {
+            width: 100% !important;
+        }
+        .game[readonly] {
+            background-color: #eee;
+            opacity: 1;
+        }
+    </style>
+@endsection
 @section('content')
 <section id="contact-us" class="contact-us-section" style="background-color: #f1f1f1">
     <div class="container">
@@ -22,20 +36,32 @@
                     <!-- / contact-form-title-->
                     <div class="contact-comment-form pb50 clearfix">
                         <div class="comment-form">
-                            <form id="contact_form" action="#" method="POST" enctype="multipart/form-data">
+                            <form action="#" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="contact-comment-info">
-                                    <input class="name" name="name" type="text" placeholder="Tên của bạn">
+                                    <input name="name" type="text" placeholder="Tên của bạn" value="{{ old('name') }}">
+                                    <span class="help-block">
+                                        <strong class="text-danger error-text name_error">@error('name') {{$message}} @enderror</strong>
+                                    </span>
                                 </div>
                                 <div class="contact-comment-info">
-                                    <input class="email" name="email" type="email" placeholder="Email của bạn">
+                                    <input name="email" type="email" placeholder="Email của bạn" value="{{ old('email') }}">
+                                    <span class="help-block">
+                                        <strong class="text-danger error-text email_error">@error('email') {{$message}} @enderror</strong>
+                                    </span>
                                 </div>
                                 <div class="contact-comment-info">
-                                    <input class="email" name="phone" type="number" placeholder="Số điện thoại của bạn">
+                                    <input name="phone" type="number" placeholder="Số điện thoại của bạn" value="{{ old('phone') }}">
+                                    <span class="help-block">
+                                        <strong class="text-danger error-text phone_error">@error('phone') {{$message}} @enderror</strong>
+                                    </span>
                                 </div>
                                 <div class="contact-comment-info">
                                     <div class="contact-comment-info">
-                                        <input class="email" name="password" type="password" placeholder="Mật khẩu">
+                                        <input name="password" type="password" placeholder="Mật khẩu">
+                                        <span class="help-block">
+                                        <strong class="text-danger error-text password_error">@error('password') {{$message}} @enderror</strong>
+                                    </span>
                                     </div>
                                 </div>
                                 <div class="send-button text-uppercase text-center">
